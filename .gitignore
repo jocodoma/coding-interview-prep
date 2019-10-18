@@ -1,0 +1,18 @@
+# Editor/IDE generated files #
+##############################
+*.project
+*.cproject
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Objects folder #
+#################
+build/
