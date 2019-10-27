@@ -1,7 +1,7 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        return hashMap(nums);
+        // return hashMap(nums);
         return xorOP(nums);
     }
 
