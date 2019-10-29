@@ -10,7 +10,7 @@ class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         // return bruteForce(headA, headB);
-        // return lookupHashTable(headA, headB);
+        // return hashTable(headA, headB);
         return twoPointersOneList(headA, headB);
     }
 
@@ -30,7 +30,7 @@ public:
     }
 
     // time complexity: O(n+m), space complexity: O(m) or O(m)
-    ListNode *lookupHashTable(ListNode *headA, ListNode *headB){
+    ListNode *hashTable(ListNode *headA, ListNode *headB){
         ListNode *currA = headA;
         ListNode *currB = headB;
         std::unordered_set<ListNode*> lookupTable;
@@ -50,8 +50,7 @@ public:
     // combine two lists to create a new list (length = n + m)
     // time complexity: O(n+m), space complexity: O(1)
     ListNode *twoPointersOneList(ListNode *headA, ListNode *headB){
-        ListNode *currA = headA;
-        ListNode *currB = headB;
+        ListNode *currA = headA, *currB = headB;
         while(currA != currB){
             currA = currA ? currA->next : headB;
             currB = currB ? currB->next : headA;
