@@ -33,7 +33,7 @@ public:
         return -1;  // no majority element found
     }
 
-    // time complexity: O(nlogn), space complexity: O(1) - sorted in place
+    // time complexity: O(nlogn), space complexity: O(1) if sorted in place
     int sorting(vector<int>& nums){
         std::nth_element(nums.begin(), nums.begin() + nums.size()/2, nums.end());
         return nums[nums.size()/2];
