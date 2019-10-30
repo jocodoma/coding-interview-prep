@@ -24,7 +24,6 @@ public:
     // time complexity: O(n), space complexity: O(1)
     int maxVars(vector<int>& nums){
         if(nums.empty()) return 0;
-        int length = nums.size();
         int preNotAdjMax = 0;  // [i-2]
         int currMax = 0;  // [i-1]
         for(const auto& num : nums){
