@@ -25,11 +25,12 @@ public:
     int maxVars(vector<int>& nums){
         if(nums.empty()) return 0;
         int length = nums.size();
-        int preNotAdjMax = 0, preAdjMax = 0, currMax = 0;
-        for(int i = 0; i < length; i++){
-            currMax = std::max(preAdjMax, nums[i] + preNotAdjMax);
-            preNotAdjMax = preAdjMax;
-            preAdjMax = currMax;
+        int preNotAdjMax = 0;  // [i-2]
+        int currMax = 0;  // [i-1]
+        for(const auto& num : nums){
+            int nextMax = std::max(currMax, num + preNotAdjMax);
+            preNotAdjMax = currMax;
+            currMax = nextMax;
         }
         return currMax;
     }
