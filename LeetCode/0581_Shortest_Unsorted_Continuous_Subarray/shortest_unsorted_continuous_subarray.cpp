@@ -2,7 +2,7 @@ class Solution {
 public:
     int findUnsortedSubarray(vector<int>& nums) {
         // return sortAndCheck(nums);
-        return checkFromBeginAndEnd(nums);
+        return twoPointers(nums);
     }
 
     // Reference:
@@ -24,7 +24,7 @@ public:
     }
 
     // time complexity: O(n), space complexity: O(1)
-    int checkFromBeginAndEnd(vector<int>& nums){
+    int twoPointers(vector<int>& nums){
         int n = nums.size();
         if(n == 0 || n == 1) return 0;
 
