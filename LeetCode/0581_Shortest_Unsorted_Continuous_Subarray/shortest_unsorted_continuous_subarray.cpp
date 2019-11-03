@@ -5,6 +5,9 @@ public:
         return checkFromBeginAndEnd(nums);
     }
 
+    // Reference:
+    // https://leetcode.com/problems/shortest-unsorted-continuous-subarray/discuss/123732/Two-c%2B%2B-solution
+
     // time complexity: O(nlogn), space complexity: O(n)
     int sortAndCheck(vector<int>& nums){
         int n = nums.size();
