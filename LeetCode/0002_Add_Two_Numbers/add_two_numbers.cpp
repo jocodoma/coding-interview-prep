@@ -8,6 +8,7 @@
  */
 class Solution {
 public:
+    // time complexity: O(max(m,n)), space complexity: O(max(m,n))
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode dummyHead(0);
         ListNode *curr = &dummyHead;
