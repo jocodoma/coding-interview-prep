@@ -27,7 +27,7 @@ public:
 class Solution_TwoPassHashTable {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> lookupTable;
+        std::unordered_map<int, int> lookupTable;
         for(int i = 0; i < (int)nums.size(); i++) {
             lookupTable.insert({nums[i], i});
         }
@@ -47,7 +47,7 @@ public:
 class Solution_OnePassHashTable {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> lookupTable;
+        std::unordered_map<int, int> lookupTable;
         for(int i = 0; i < (int)nums.size(); i++) {
           int diff = target - nums[i];
             if(lookupTable.count(diff)) {

@@ -16,7 +16,7 @@ public:
 
     // hashset - space complexity O(n)
     bool checkVisitedNode(ListNode *head){
-        unordered_set<ListNode*> visitedNodeSet;
+        std::unordered_set<ListNode*> visitedNodeSet;
         while(head){
             if(visitedNodeSet.count(head)) return true;
             visitedNodeSet.insert(head);

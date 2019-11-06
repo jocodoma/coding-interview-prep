@@ -26,7 +26,7 @@ public:
     }
 
     bool isSymmetric_Iterative(TreeNode* root){
-        stack<TreeNode*> nodeStack;
+        std::stack<TreeNode*> nodeStack;
         nodeStack.push(root);
         nodeStack.push(root);
 

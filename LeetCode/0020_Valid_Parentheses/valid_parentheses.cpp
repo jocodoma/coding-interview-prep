@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValid(string s) {
-        stack<char> pStack;
+        std::stack<char> pStack;
         for(const auto& c : s){
             switch(c){
                 case '{':

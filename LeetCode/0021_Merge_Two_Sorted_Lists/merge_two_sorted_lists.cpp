@@ -9,7 +9,7 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode dummyHead(0);
+        ListNode dummyHead(0);  // to avoid potential memory leak
         auto currNode = &dummyHead;
 
         while(l1 && l2){
