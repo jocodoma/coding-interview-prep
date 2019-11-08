@@ -4,8 +4,8 @@ public:
         // return bruteForce(s);
         // return slidingWindow(s);
         // return slidingWindowOptimal(s);
-        // return slidingWindowTable(s);
-        return slidingWindowTable2(s);
+        return slidingWindowTable(s);
+        // return slidingWindowTable2(s);
     }
 
     // time complexity: O(n^2), in worst case it could be O(n^3)
