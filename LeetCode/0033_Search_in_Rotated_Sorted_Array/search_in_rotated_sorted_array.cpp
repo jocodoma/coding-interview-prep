@@ -30,6 +30,7 @@ public:
         //     else hi = mid;
         // }
 
+        // Reference: https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14419
         // Remember the array is sorted, except it might drop at one point
         // * If nums[0] <= nums[i], then nums[0..i] is sorted
         // * If nums[i] < nums[0], then nums[0..i] contains a drop, 
