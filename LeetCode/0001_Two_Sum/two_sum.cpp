@@ -49,7 +49,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         std::unordered_map<int, int> lookupTable;
         for(int i = 0; i < (int)nums.size(); i++) {
-          int diff = target - nums[i];
+            int diff = target - nums[i];
             if(lookupTable.count(diff)) {
                 return {lookupTable[diff], i};
             }
