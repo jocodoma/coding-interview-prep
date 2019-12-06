@@ -1,10 +1,44 @@
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        return dpArray(m, n);
+        return combination1(m, n);
+        // return combination2(m, n);
+        // return dpArray(m, n);
         // return dpVector(m, n);
         // return dp2(m, n);
         // return dp3(m, n);
+    }
+
+    // Reference: https://betterexplained.com/articles/navigate-a-grid-using-combinations-and-permutations/
+
+    // time complexity: O(min(m,n)), space complexity: O(1)
+    int combination1(int m, int n){
+        if(m < 1 || n < 1) return 0;
+
+        int N = m + n - 2;  // (m-1) down and (n-1) right, hence the total is (m-1)+(n-1)
+        int maxK = std::max(m - 1, n - 1);
+        int minK = std::min(m - 1, n - 1);
+        long int numerator = 1, denominator = 1;
+
+        for(int i = N; i > maxK; i--) numerator *= i;
+        for(int i = 2; i <= minK; i++) denominator *= i;
+
+        return (numerator / denominator);
+    }
+
+    // time complexity: O(min(m,n)), space complexity: O(1)
+    int combination2(int m, int n){
+        if(m < 1 || n < 1) return 0;
+
+        int maxK = std::max(m - 1, n - 1);
+        int minK = std::min(m - 1, n - 1);
+        long int numerator = 1, denominator = 1;
+
+        for(int i = 1; i <= minK; i++){
+            numerator *= (maxK + i);
+            denominator *= i;
+        }
+        return (numerator / denominator);
     }
 
     // time complexity: O(mn), space complexity: O(mn)
