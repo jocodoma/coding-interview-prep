@@ -9,6 +9,12 @@ public:
         // return dp3(m, n);
     }
 
+    // Brute Force: Overlapping Subproblems
+    // Reference: https://www.geeksforgeeks.org/min-cost-path-dp-6/
+    // It can be simply done by recursion, but will computes the same subproblems again and again.
+    // Thus, the time complexity will be exponential and it's terribly slow.
+
+    // Combination method
     // Reference: https://betterexplained.com/articles/navigate-a-grid-using-combinations-and-permutations/
 
     // time complexity: O(min(m,n)), space complexity: O(1)
@@ -41,6 +47,7 @@ public:
         return (numerator / denominator);
     }
 
+    // Dynamic Programming method
     // time complexity: O(mn), space complexity: O(mn)
     int dpArray(int m, int n){
         if(m < 1 || n < 1) return 0;
