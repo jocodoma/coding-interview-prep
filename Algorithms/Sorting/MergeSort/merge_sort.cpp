@@ -4,7 +4,7 @@
 // Utility function to find minimum of two integers
 // int min(int x, int y){ return (x < y) ? x : y; }
 
-// merges two subarrys of vec[]
+// sort and merge two subarrys
 // first subarray is vec[l..m]
 // second subarray is vec[m+1..r]
 void merge(std::vector<int>& vec, int l, int m, int r){
@@ -60,7 +60,7 @@ void mergeSortRecursive(std::vector<int>& vec, int l, int r){
         // same as (l+r)/2, but avoids overflow for large l and h
         int m = l + (r - l) / 2;
 
-        // sort first and second halves, then merge
+        // split into first and second halves, then sort and merge
         mergeSortRecursive(vec, l, m);
         mergeSortRecursive(vec, m+1, r);
         merge(vec, l, m, r);

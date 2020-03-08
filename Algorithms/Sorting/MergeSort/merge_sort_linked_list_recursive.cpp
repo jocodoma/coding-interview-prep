@@ -8,27 +8,37 @@ struct Node {
 };
 
 Node* merge(Node* a, Node* b){
-    Node dummy(0);  // to avoid potential memory leak
-    Node *tail = &dummy;
+    Node dummyHead(0);  // to avoid potential memory leak
+    Node *tailNode = &dummyHead;
 
-    // base case
-    if(a == NULL)
-        return b;
-    if(b == NULL)
-        return a;
+    while(a && b){
+        Node *&nextNode = (a->data < b->data) ? a : b;
+        tailNode->next = nextNode;
+        nextNode = nextNode->next;
+        tailNode = tailNode->next;
+    }
+    tailNode->next = a ? a : b;
 
-    // pick either a or b
-    if(a->data <= b->data){
-        tail->next = a;
-        tail = tail->next;
-        tail->next = merge(a->next, b);
-    }
-    else{
-        tail->next = b;
-        tail = tail->next;
-        tail->next = merge(a, b->next);
-    }
-    return dummy.next;
+    return dummyHead.next;
+
+    // // base case
+    // if(a == NULL)
+    //     return b;
+    // if(b == NULL)
+    //     return a;
+
+    // // pick either a or b
+    // if(a->data < b->data){
+    //     tailNode->next = a;
+    //     tailNode = tailNode->next;
+    //     tailNode->next = merge(a->next, b);
+    // }
+    // else{
+    //     tailNode->next = b;
+    //     tailNode = tailNode->next;
+    //     tailNode->next = merge(a, b->next);
+    // }
+    // return dummyHead.next;
 }
 
 void frontBackSplit(Node* currHead, Node*& frontHead, Node*& backHead){
@@ -59,10 +69,10 @@ void mergeSort(Node*& headNode){
     if(head == NULL || head->next == NULL)
         return;
     
-    // split head into two halves, a and b
+    // split the list into two halves, a and b
     frontBackSplit(head, a, b);
 
-    // recursively sort the sublists
+    // recursively split each sublist
     mergeSort(a);
     mergeSort(b);
 
