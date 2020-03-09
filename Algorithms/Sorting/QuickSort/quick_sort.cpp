@@ -9,12 +9,37 @@
 //     b = temp;
 // }
 
+// take the first element as pivot
+// place pivot element at correct position in sorted array
+// all elements smaller than pivot to the left of pivot
+// all elements greater than pivot to the right of pivot
+// using Hoare's partition scheme
+int partition_hoare(std::vector<int>& vec, int l, int r){
+    int pivot = vec[l];
+    int i = l, j = r;  // initial index
+
+    while(i < j){
+        // find leftmost element greater than or equal to pivot
+        while(vec[i] < pivot)
+            i++;
+
+        // find rightmost element smaller than or equal to pivot
+        while(vec[j] > pivot)
+            j--;
+
+        if(i < j)
+            std::swap(vec[i], vec[j]);
+    }
+
+    return j;
+}
+
 // take last element as pivot
 // place pivot element at correct position in sorted array
 // all elements smaller than pivot to the left of pivot
 // all elements greater than pivot to the right of pivot
 // using Lomuto partition scheme
-int partition(std::vector<int>& vec, int l, int r){
+int partition_lomuto(std::vector<int>& vec, int l, int r){
     int pivot = vec[r];
     int i = l;  // initial index
 
@@ -27,10 +52,11 @@ int partition(std::vector<int>& vec, int l, int r){
     return i;
 }
 
-// pick a random index for randomized partition
+// pick a random index for the random pivot
 void pickRandomIndex(std::vector<int>& vec, int l, int r){
-    int pi = rand() % (r-l+1) + l;  // choose a random index between [l, r]
-    std::swap(vec[pi], vec[r]);     // swap the end element with element present at random index
+    int pi = l + rand() % (r-l+1);  // choose a random index between [l, r]
+    std::swap(vec[pi], vec[r]);     // (Lomuto) swap the end element with element present at random index
+    // std::swap(vec[pi], vec[l]);     // (Hoare's) swap the first element with element present at random index
 }
 
 void quickSortIterative(std::vector<int>& vec){
@@ -47,7 +73,7 @@ void quickSortIterative(std::vector<int>& vec){
         r = stack.top(); stack.pop();
         l = stack.top(); stack.pop();
 
-        int pi = partition(vec, l, r);
+        int pi = partition_lomuto(vec, l, r);
 
         // if there are elements on the left of pivot
         // then push left side to stack
@@ -71,16 +97,17 @@ void quickSortIterative(std::vector<int>& vec){
 // space complexity: O(n)
 void quickSortRecursive_optimization(std::vector<int>& vec, int l, int r){
     while(l < r){
-          int pi = partition(vec, l, r);
+          int pi = partition_lomuto(vec, l, r);
           quickSortRecursive_optimization(vec, l, pi-1);
           l = pi + 1;
     }
 }
 
+// a recursive call is only for the smaller part after partition
 // space complexity: O(log n)
 void quickSortRecursive_furtherOptimization(std::vector<int>& vec, int l, int r){
     while(l < r){
-          int pi = partition(vec, l, r);
+          int pi = partition_lomuto(vec, l, r);
 
           if((pi - l) < (r - pi)){
               quickSortRecursive_furtherOptimization(vec, l, pi-1);
@@ -98,8 +125,9 @@ void quickSortRecursive_furtherOptimization(std::vector<int>& vec, int l, int r)
 void quickSortRecursive(std::vector<int>& vec, int l, int r){
     if(l < r){
         // pi is partition index
-        // pickRandomIndex(vec, l, r);      // pick a random index for randomized partition
-        int pi = partition(vec, l, r);   // pick the last element as pivot
+        pickRandomIndex(vec, l, r);            // pick a random index for randomized partition
+        int pi = partition_lomuto(vec, l, r);  // pick the last element as pivot
+        // int pi = partition_hoare(vec, l, r);   // pick the last element as pivot
         // vec[pi] is now at right place
 
         quickSortRecursive(vec, l, pi-1);  // sort elements befor pi
