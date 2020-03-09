@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <stack>
+#include <utility>
+#include <vector>
 
 // a utility function to swap two elements
 // void swap(int& a, int& b){
@@ -14,6 +15,7 @@
 // all elements smaller than pivot to the left of pivot
 // all elements greater than pivot to the right of pivot
 // using Hoare's partition scheme
+// https://www.geeksforgeeks.org/hoares-vs-lomuto-partition-scheme-quicksort/
 int partition_hoare(std::vector<int>& vec, int l, int r){
     int pivot = vec[l];
     int i = l, j = r;  // initial index
@@ -53,6 +55,7 @@ int partition_lomuto(std::vector<int>& vec, int l, int r){
 }
 
 // pick a random index for the random pivot
+// https://www.geeksforgeeks.org/quicksort-using-random-pivoting/
 void pickRandomIndex(std::vector<int>& vec, int l, int r){
     int pi = l + rand() % (r-l+1);  // choose a random index between [l, r]
     std::swap(vec[pi], vec[r]);     // (Lomuto) swap the end element with element present at random index
