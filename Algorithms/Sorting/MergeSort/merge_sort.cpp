@@ -60,7 +60,7 @@ void mergeSortRecursive(std::vector<int>& vec, int l, int r){
         // same as (l+r)/2, but avoids overflow for large l and h
         int m = l + (r - l) / 2;
 
-        // split into first and second halves, then sort and merge
+        // split into first and second halves, then sort and finally merge
         mergeSortRecursive(vec, l, m);
         mergeSortRecursive(vec, m+1, r);
         merge(vec, l, m, r);
