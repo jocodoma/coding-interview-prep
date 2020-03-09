@@ -13,6 +13,7 @@
 // place pivot element at correct position in sorted array
 // all elements smaller than pivot to the left of pivot
 // all elements greater than pivot to the right of pivot
+// using Lomuto partition scheme
 int partition(std::vector<int>& vec, int l, int r){
     int pivot = vec[r];
     int i = l;  // initial index
@@ -24,6 +25,12 @@ int partition(std::vector<int>& vec, int l, int r){
     std::swap(vec[i], vec[r]);
 
     return i;
+}
+
+// pick a random index for randomized partition
+void pickRandomIndex(std::vector<int>& vec, int l, int r){
+    int pi = rand() % (r-l+1) + l;  // choose a random index between [l, r]
+    std::swap(vec[pi], vec[r]);     // swap the end element with element present at random index
 }
 
 void quickSortIterative(std::vector<int>& vec){
@@ -91,7 +98,8 @@ void quickSortRecursive_furtherOptimization(std::vector<int>& vec, int l, int r)
 void quickSortRecursive(std::vector<int>& vec, int l, int r){
     if(l < r){
         // pi is partition index
-        int pi = partition(vec, l, r);
+        // pickRandomIndex(vec, l, r);      // pick a random index for randomized partition
+        int pi = partition(vec, l, r);   // pick the last element as pivot
         // vec[pi] is now at right place
 
         quickSortRecursive(vec, l, pi-1);  // sort elements befor pi
@@ -110,6 +118,7 @@ int main(){
     std::vector<int> input = {10, 7, 8, 9, 1, 5};
     // std::vector<int> input = {4, 2, 6, 9, 2};
     // std::vector<int> input = {9, -3, 5, 2, 6, 8, -6, 1, 3};
+    // std::vector<int> input = {9, 8, 7, 6, 5, 4, 3, 2, 1};
 
     std::cout << "Given array is \n";
     printVector(input);
