@@ -27,12 +27,10 @@ public:
 
             ListNode *node = new ListNode(sum % 10);
             curr->next = node;
+            curr = curr->next;
 
-            if(l1 || l2){
-                curr = curr->next;
-                l1 = l1 ? l1->next : NULL;
-                l2 = l2 ? l2->next : NULL;
-            }
+            l1 = l1 ? l1->next : NULL;
+            l2 = l2 ? l2->next : NULL;
         }
 
         return dummyHead.next;
@@ -56,13 +54,11 @@ public:
 
         ListNode *node = new ListNode(sum % 10);
         curr->next = node;
-        
-        if(l1 || l2){
-            if(l1) l1 = l1->next;
-            if(l2) l2 = l2->next;
-            curr = curr->next;
-            curr->next = helper(l1, l2, carry);
-        }
+        curr = curr->next;
+
+        l1 = l1 ? l1->next : NULL;
+        l2 = l2 ? l2->next : NULL;
+        curr->next = helper(l1, l2, carry);
         
         return dummyHead.next;
     }
