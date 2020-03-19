@@ -12,34 +12,34 @@ public:
     // time complexity: O(n)
     // space complexity: O(n) if the tree is unbalanced, O(log n) if tree is balanced
     bool isValidBST(TreeNode* root) {
-        return recursiveTopDownHelper(root, LONG_MIN, LONG_MAX);
-        // return recursiveBottomUpHelper(root, LONG_MIN, LONG_MAX);
-        // return recursiveInOrderTraversal(root);
-        // return iterativeInOrderTraversalHelper(root);
+        return recursivePreOrderTraversal(root, LONG_MIN, LONG_MAX);
+        // return recursivePostOrderTraversal(root, LONG_MIN, LONG_MAX);
+        // return recursiveInOrderTraversal(root, NULL);
+        // return iterativeInOrderTraversal(root);
     }
 
-    // DFS recursive (top-down method)
+    // DFS recursive (Pre-order traversal / top-down method)
     // Use LONG_MIN and LONG_MAX to handle edge cases like [INT_MAX]
     // potentially have stack overflow
-    bool recursiveTopDownHelper(TreeNode* node, long lower, long upper){
+    bool recursivePreOrderTraversal(TreeNode* node, long lower, long upper){
         if(node == NULL)
             return true;
         
         if(node->val <= lower || node->val >= upper)
             return false;
         
-        return recursiveTopDownHelper(node->left, lower, node->val) &&
-               recursiveTopDownHelper(node->right, node->val, upper);
+        return recursivePreOrderTraversal(node->left, lower, node->val) &&
+               recursivePreOrderTraversal(node->right, node->val, upper);
     }
 
-    // DFS recursive (bottom-up method)
+    // DFS recursive (Post-order traversal / bottom-up method)
     // potentially have stack overflow
-    bool recursiveBottomUpHelper(TreeNode* node, long lower, long upper){
+    bool recursivePostOrderTraversal(TreeNode* node, long lower, long upper){
         if(node == NULL)
             return true;
         
-        bool left = recursiveBottomUpHelper(node->left, lower, node->val);
-        bool right = recursiveBottomUpHelper(node->right, node->val, upper);
+        bool left = recursivePostOrderTraversal(node->left, lower, node->val);
+        bool right = recursivePostOrderTraversal(node->right, node->val, upper);
 
         if(node->val <= lower || node->val >= upper)
             return false;
@@ -47,18 +47,13 @@ public:
         return left && right;
     }
 
-    // DFS recursive (inorder traversal)
+    // DFS recursive (In-order traversal)
     // potentially have stack overflow
-    bool recursiveInOrderTraversal(TreeNode* node){
-        TreeNode *prev = NULL;
-        return recursiveInOrderTraversalHelper(node, prev);
-    }
-
-    bool recursiveInOrderTraversalHelper(TreeNode* node, TreeNode*& prev){
+    bool recursiveInOrderTraversal(TreeNode* node, TreeNode*& prev){
         if(!node)
             return true;
 
-        if(!recursiveInOrderTraversalHelper(node->left, prev))
+        if(!recursiveInOrderTraversal(node->left, prev))
             return false;
 
         if(prev != NULL && node->val <= prev->val)
@@ -66,11 +61,11 @@ public:
 
         prev = node;
 
-        return recursiveInOrderTraversalHelper(node->right, prev);
+        return recursiveInOrderTraversal(node->right, prev);
     }
 
-    // DFS iterative (inorder traversal + bottom up)
-    bool iterativeInOrderTraversalHelper(TreeNode* node){
+    // DFS iterative (In-order traversal)
+    bool iterativeInOrderTraversal(TreeNode* node){
         std::stack<TreeNode*> todoStk;
         long preVal = LONG_MIN;
 
