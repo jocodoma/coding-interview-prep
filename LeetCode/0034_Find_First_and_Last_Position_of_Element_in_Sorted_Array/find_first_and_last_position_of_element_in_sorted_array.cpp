@@ -21,33 +21,46 @@ public:
         return {startIdx, endIdx};
     }
 
-    // time complexity: O(log n), space complexity: O(1)
+    // time complexity: O(log n)
+    // space complexity: O(1) for iterative method, O(log n) for recursive method
     vector<int> binarySearch(vector<int>& nums, int target){
-        if(nums.empty()) return {-1, -1};
+        if(nums.empty())
+            return {-1, -1};
 
-        int startIdx = -1, endIdx = -1;
+        // do binary search to look for the index of lower bound of the target value
 
-        // find the lowest index of target
-        int lo = 0, hi = nums.size() - 1;
-        while(lo < hi){
-            int mid = (lo + hi) / 2;
-            if(nums[mid] < target) lo = mid + 1;
-            else hi = mid;
+        // recursive
+        // int first = recursiveBinarySearch(nums, target, 0, nums.size()-1);
+        // if(first == nums.size() || nums[first] != target) return {-1, -1};
+        // int end = recursiveBinarySearch(nums, target+1, first, nums.size()-1) - 1;
+
+        // iterative
+        int first = iterativeBinarySearch(nums, target, 0, nums.size()-1);
+        if(first == nums.size() || nums[first] != target) return {-1, -1};
+        int end = iterativeBinarySearch(nums, target+1, first, nums.size()-1) - 1;
+
+        return {first, end};
+    }
+
+    int recursiveBinarySearch(vector<int>& nums, int target, int lo, int hi){
+        if(lo <= hi){
+            int mid = lo + (hi - lo) / 2;
+            if(nums[mid] < target)
+                return recursiveBinarySearch(nums, target, mid+1, hi);
+            else
+                return recursiveBinarySearch(nums, target, lo, mid-1);
         }
-        if(nums[lo] != target) return {startIdx, endIdx};
-        startIdx = lo;
+        return lo;
+    }
 
-        // find the highest index of target (start from lo = startIdx)
-        hi = nums.size() - 1;
-        while(lo < hi){
-            int sum = lo + hi;
-            int mid = sum / 2;
-            if(sum % 2 != 0) mid += 1;
-            if(nums[mid] > target) hi = mid - 1;
-            else lo = mid;
+    int iterativeBinarySearch(vector<int>& nums, int target, int lo, int hi){
+        while(lo <= hi){
+            int mid = lo + ((hi - lo) >> 1);
+            if(nums[mid] < target)
+                lo = mid + 1;
+            else
+                hi = mid - 1;
         }
-        endIdx = hi;
-
-        return {startIdx, endIdx};
+        return lo;
     }
 };
