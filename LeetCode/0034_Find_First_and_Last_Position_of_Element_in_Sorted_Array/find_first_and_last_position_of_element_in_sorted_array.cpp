@@ -28,15 +28,10 @@ public:
             return {-1, -1};
 
         // do binary search to look for the index of lower bound of the target value
-
-        // recursive
         // int first = recursiveBinarySearch(nums, target, 0, nums.size()-1);
-        // if(first == nums.size() || nums[first] != target) return {-1, -1};
-        // int end = recursiveBinarySearch(nums, target+1, first, nums.size()-1) - 1;
-
-        // iterative
         int first = iterativeBinarySearch(nums, target, 0, nums.size()-1);
         if(first == nums.size() || nums[first] != target) return {-1, -1};
+        // int end = recursiveBinarySearch(nums, target+1, first, nums.size()-1) - 1;
         int end = iterativeBinarySearch(nums, target+1, first, nums.size()-1) - 1;
 
         return {first, end};
