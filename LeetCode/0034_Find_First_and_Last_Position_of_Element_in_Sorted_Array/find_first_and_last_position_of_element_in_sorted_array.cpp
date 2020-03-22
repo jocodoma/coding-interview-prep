@@ -7,18 +7,21 @@ public:
 
     // time complexity: O(n), space complexity: O(1)
     vector<int> linearSearch(vector<int>& nums, int target){
-        if(nums.empty()) return {-1, -1};
+        int first = -1, last = -1;
+        if(nums.empty())
+            return {first, last};
 
-        int n = nums.size();
-        int startIdx = -1, endIdx = -1;
-        for(int i = 0; i < n; i++){
-            if(target < nums[i]) break;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] > target)
+                break;
             if(nums[i] == target){
-                if(startIdx < 0) startIdx = endIdx = i;
-                else endIdx = i;
+                if(first < 0)
+                    first = last = i;
+                else
+                    last = i;
             }
         }
-        return {startIdx, endIdx};
+        return {first, last};
     }
 
     // time complexity: O(log n)
@@ -30,11 +33,12 @@ public:
         // do binary search to look for the index of lower bound of the target value
         // int first = recursiveBinarySearch(nums, target, 0, nums.size()-1);
         int first = iterativeBinarySearch(nums, target, 0, nums.size()-1);
-        if(first == nums.size() || nums[first] != target) return {-1, -1};
-        // int end = recursiveBinarySearch(nums, target+1, first, nums.size()-1) - 1;
-        int end = iterativeBinarySearch(nums, target+1, first, nums.size()-1) - 1;
+        if(first == nums.size() || nums[first] != target)
+            return {-1, -1};
+        // int last = recursiveBinarySearch(nums, target+1, first, nums.size()-1) - 1;
+        int last = iterativeBinarySearch(nums, target+1, first, nums.size()-1) - 1;
 
-        return {first, end};
+        return {first, last};
     }
 
     int recursiveBinarySearch(vector<int>& nums, int target, int lo, int hi){
