@@ -5,5 +5,6 @@
 * Other Questions - https://leetcode.com/problemset/  
 [0098 Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)  
 [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
+[0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)  
 [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
 [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
