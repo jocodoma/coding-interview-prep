@@ -3,6 +3,7 @@
 * Top 100 Liked Questions - https://leetcode.com/problemset/top-100-liked-questions/  
   ![Progress](https://img.shields.io/badge/Progress-47%20%2F%20100-ff69b4.svg)
 * Other Questions - https://leetcode.com/problemset/  
-[0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
 [0098 Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)  
+[0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
+[0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
 [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
