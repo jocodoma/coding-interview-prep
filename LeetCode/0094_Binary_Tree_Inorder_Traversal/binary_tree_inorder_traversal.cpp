@@ -10,40 +10,44 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        // return recursive(root);
-        return iterative(root);
+        // return recursiveTraversal(root);
+        return iterativeTraversal(root);
     }
 
 private:
     // time complexity: O(n)
-    // space complexity: in average O(logn), but worst case is O(n)
-    std::vector<int> recursive(TreeNode* root){
-        std::vector<int> nodes;
-        dfsInorder(root, nodes);
-        return nodes;
+    // space complexity: in average is O(log n), but the worst case is O(n)
+    std::vector<int> recursiveTraversal(TreeNode* root){
+        recursiveHelper(root);
+        return sol;
     }
 
-    void dfsInorder(TreeNode* root, std::vector<int>& nodes){
-        if(!root) return;
-
-        dfsInorder(root->left, nodes);
-        nodes.push_back(root->val);
-        dfsInorder(root->right, nodes);
+    void recursiveHelper(TreeNode* node){
+        if(!node) return;
+        recursiveHelper(node->left);
+        sol.push_back(node->val);
+        recursiveHelper(node->right);
     }
 
     // time complexity: O(n), space complexity: O(n)
-    std::vector<int> iterative(TreeNode* root){
-        std::vector<int> nodes;
-        std::stack<TreeNode*> nodeStack;
-        while(root || !nodeStack.empty()){
-            while(root){
-                nodeStack.push(root);
-                root = root->left;
+    std::vector<int> iterativeTraversal(TreeNode* root){
+        if(!root) return {};
+
+        std::stack<TreeNode*> stk;
+        TreeNode *node = root;
+
+        while(node || !stk.empty()){
+            while(node){
+                stk.push(node);
+                node = node->left;
             }
-            root = nodeStack.top(); nodeStack.pop();
-            nodes.push_back(root->val);
-            root = root->right;
+            node = stk.top(); stk.pop();
+            sol.push_back(node->val);
+            node = node->right;
         }
-        return nodes;
+        return sol;
     }
+
+private:
+    vector<int> sol;
 };

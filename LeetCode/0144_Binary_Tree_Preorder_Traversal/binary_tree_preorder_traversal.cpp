@@ -14,24 +14,23 @@ public:
         return iterativeTraversal(root);
     }
 
+    // time complexity: O(n)
+    // space complexity: in average is O(log n), but the worst case is O(n)
     std::vector<int> recursiveTraversal(TreeNode* root){
-        if(!root)
-            return {};
         recursiveHelper(root);
         return sol;
     }
 
     void recursiveHelper(TreeNode* node){
+        if(!node) return;
         sol.push_back(node->val);
-        if(node->left)
-            recursiveHelper(node->left);
-        if(node->right)
-            recursiveHelper(node->right);
+        recursiveHelper(node->left);
+        recursiveHelper(node->right);
     }
 
+    // time complexity: O(n), space complexity: O(n)
     std::vector<int> iterativeTraversal(TreeNode* root){
-        if(!root)
-            return {};
+        if(!root) return {};
 
         std::stack<TreeNode*> stk;
         stk.push(root);
