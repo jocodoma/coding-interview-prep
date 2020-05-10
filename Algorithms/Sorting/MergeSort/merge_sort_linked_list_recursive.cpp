@@ -61,8 +61,8 @@ void frontBackSplit(Node* currHead, Node*& frontHead, Node*& backHead){
     slow->next = NULL;
 }
 
-void mergeSort(Node*& headNode){
-    Node *head = headNode;
+void mergeSort(Node** headNode){
+    Node *head = *headNode;
     Node *a, *b;
 
     // base case
@@ -73,11 +73,11 @@ void mergeSort(Node*& headNode){
     frontBackSplit(head, a, b);
 
     // recursively split each sublist
-    mergeSort(a);
-    mergeSort(b);
+    mergeSort(&a);
+    mergeSort(&b);
 
     // sort and merge the two list
-    headNode = merge(a, b);
+    *headNode = merge(a, b);
 }
 
 void printList(Node* node)
@@ -90,12 +90,14 @@ void printList(Node* node)
 }
   
 // function to insert a node at the beginging of the linked list
-void push(Node** headNode, int newData){
+// (pass a pointer by reference)
+void push(Node*& headNode, int newData){
     Node *newNode = new Node(newData);
-    newNode->next = *headNode;
-    *headNode = newNode;  // insert the new node to the head of list
+    newNode->next = headNode;
+    headNode = newNode;  // insert the new node to the head of list
 }
 
+// (pass a pointer by reference)
 void release(Node*& headNode){
     Node *currNode = headNode;
     while(currNode != NULL){
@@ -111,18 +113,18 @@ int main(){
 
     // create a unsorted linked lists to test the functions
     // created lists shall be a: 2->3->20->5->10->15
-    push(&a, 15);
-    push(&a, 10);
-    push(&a, 5);
-    push(&a, 20);
-    push(&a, 3);
-    push(&a, 2);
+    push(a, 15);
+    push(a, 10);
+    push(a, 5);
+    push(a, 20);
+    push(a, 3);
+    push(a, 2);
 
     std::cout << "Given array is \n";
     printList(a);
 
     // sort the above created Linked List
-    mergeSort(a);
+    mergeSort(&a);
   
     std::cout << "\nSorted Linked List is: \n";
     printList(a);
