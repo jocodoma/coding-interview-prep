@@ -2,7 +2,8 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         // return bruteForce(nums, target);
-        return binarySearch(nums, target);
+        // return binarySearch1(nums, target);
+        return binarySearch2(nums, target);
     }
 
     // time complexity: O(n), space complexity: O(1)
@@ -16,7 +17,7 @@ public:
     }
 
     // time complexity: O(log n), space complexity: O(1)
-    int binarySearch(vector<int>& nums, int target){
+    int binarySearch1(vector<int>& nums, int target){
         if(nums.empty()) return -1;
 
         int lo = 0, hi = nums.size() - 1;
@@ -49,4 +50,49 @@ public:
 
         return nums[lo] == target ? lo : -1;
     } 
+
+    // time complexity: O(log n), space complexity: O(1)
+    int binarySearch2(vector<int>& nums, int target){
+        if(nums.empty())
+            return -1;
+
+        int l = 0, r = nums.size() - 1;
+
+        // case 1 - general case
+        // nums[l] <= nums[mid] <= nums[r]
+        // -> [l .. mid] && [mid .. r] are both sorted
+
+        // case 2
+        // nums[mid] < nums[l]
+        // -> [l .. mid] there's a drop
+        // -> [mid .. r] is sorted
+
+        // case 3
+        // nums[mid] > nums[r]
+        // -> [l .. mid] is sorted
+        // -> [mid .. r] there's a drop
+
+        while(l <= r){
+            int mid = (l + r) / 2;
+
+            if(nums[mid] == target)
+                return mid;
+
+            if(nums[mid] < nums[l]){
+                if((nums[mid] < target) && (target <= nums[r]))
+                    l = mid + 1;
+                else
+                    r = mid - 1;
+            }
+            else
+            {
+                if((nums[l] <= target) && (target < nums[mid]))
+                    r = mid - 1;
+                else
+                    l = mid + 1;
+            }
+        }
+
+        return -1;
+    }
 };
