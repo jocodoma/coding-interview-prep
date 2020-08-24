@@ -25,7 +25,7 @@ public:
     }
 
     // time complexity: O(n)
-    // space complexity: O(1)    
+    // space complexity: O(1)
     int solution2(vector<int>& nums){
         int count = 0;
 
