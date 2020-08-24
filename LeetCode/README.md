@@ -9,4 +9,5 @@
 [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
 [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
 [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+[1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)
 [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)
