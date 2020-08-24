@@ -4,6 +4,8 @@ public:
         return solution(arr);
     }
 
+    // time complexity: O(n)
+    // space complexity: O(1)
     void solution(vector<int>& arr){
         int zeros = std::count(arr.begin(), arr.end(), 0);
 
