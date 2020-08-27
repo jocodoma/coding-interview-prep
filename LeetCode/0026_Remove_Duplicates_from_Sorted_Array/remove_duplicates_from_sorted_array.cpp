@@ -16,4 +16,16 @@ public:
 
         return i+1;
     }
+
+    int twoPointers2(vector<int>& nums){
+        if(nums.empty())
+            return 0;
+
+        int i = 0;
+        for(const auto& n : nums)
+            if(nums[i] != n)
+                nums[++i] = n;
+
+        return i+1;
+    }
 };
