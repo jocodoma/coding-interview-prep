@@ -33,7 +33,7 @@ public:
         }
         for(int i = 0; i < (int)nums.size(); i++) {
             int diff = target - nums[i];
-            if(lookupTable.count(diff)) {
+            if(lookupTable.count(diff) && lookupTable[diff] != i) {
                 return {i, lookupTable[diff]};
             }
         }
