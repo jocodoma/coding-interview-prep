@@ -9,7 +9,7 @@
   - [x] [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
   - [x] [0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)  
   - [x] [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
-  - [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
+  - [x] [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
   - [x] [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)  
   - [x] [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)  
   - [x] [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)  
@@ -55,6 +55,7 @@
 
 
 ### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
+* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0383_Ransom_Note/ransom_note.py)
 
 
 ### [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
