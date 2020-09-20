@@ -1,8 +1,15 @@
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+    def printList(self, l):
+        value = []
+        while(l):
+            value.append(l.val)
+            l = l.next
+        print('->'.join(map(str, value)))
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -23,3 +30,10 @@ class Solution:
         new_node.next = self.recursiveHelper(l1,l2,carry)
 
         return new_node
+
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+l3 = Solution().addTwoNumbers(l1, l2)
+ListNode().printList(l1)
+ListNode().printList(l2)
+ListNode().printList(l3)

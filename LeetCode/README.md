@@ -64,4 +64,4 @@
 ### [Graph](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Graph)
 
 ## Algorithms
-### Binary Search
+### Sorting

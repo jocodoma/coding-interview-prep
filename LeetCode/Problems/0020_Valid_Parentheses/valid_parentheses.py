@@ -13,3 +13,9 @@ class Solution:
                 if not pStack or dict[c] != pStack.pop():
                     return False
         return not pStack;
+
+print(Solution().isValid('(){([])}'))
+# True
+
+print(Solution().isValid('(){(['))
+# False
