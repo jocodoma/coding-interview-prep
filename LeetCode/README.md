@@ -39,6 +39,12 @@
 
 
 ### [Binary Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
+* [LeetCode 0094]: [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) -- Solutions: [C++](Problems/0094_Binary_Tree_Inorder_Traversal/binary_tree_inorder_traversal.cpp)
+* [LeetCode 0102]: [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) -- Solutions: [C++](Problems/0102_Binary_Tree_Level-Order_Traversal/binary_tree_level_order_traversal.cpp)
+* [LeetCode 0144]: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) -- Solutions: [C++](Problems/0144_Binary_Tree_Preorder_Traversal/binary_tree_preorder_traversal.cpp)
+* [LeetCode 0145]: [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) -- Solutions: [C++](Problems/0145_Binary_Tree_Postorder_Traversal/binary_tree_postorder_traversal.cpp)
+
+
 #### [Binary Search Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Search-Tree)
 * [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
 
