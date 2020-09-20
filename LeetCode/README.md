@@ -15,10 +15,9 @@
 [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)  
 [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)  
 
-
-## [Array](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Array)
+## Data Structures
+### [Array](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Array)
 * [LeetCode 0026]: [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -- Solutions: [C++](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.cpp)
-* [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
 * [LeetCode 0053]: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) -- Solutions: [C++](Problems/0053_Maximum_Subarray/maximum_subarray.cpp) / [Python](Problems/0053_Maximum_Subarray/maximum_subarray.py) / [Javascript](Problems/0053_Maximum_Subarray/maximum_subarray.js)
 * [LeetCode 0088]: [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) -- Solutions: [C++](Problems/0088_Merge_Sorted_Array/merge_sorted_array.cpp)
 * [LeetCode 0238]: [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) -- Solutions: [C++](Problems/0238_Product_of_Array_Except_Self/product_of_array_except_self.cpp)
@@ -27,25 +26,30 @@
 * [LeetCode 0581]: [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) -- Solutions: [C++](Problems/0581_Shortest_Unsorted_Continuous_Subarray/shortest_unsorted_continuous_subarray.cpp)
 * [LeetCode 0977]: [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) -- Solutions: [C++](Problems/0977_Squares_of_a_Sorted_Array/squares_of_a_sorted_array.cpp)
 
-## [Linked List](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Linked-List)
+### [Linked List](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Linked-List)
 
 
-## [Stack](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Stack)
+### [Stack](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Stack)
 
 
-## [Queue](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Queue)
+### [Queue](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Queue)
 
 
-## [Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
+### [Binary Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
+#### [Binary Search Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Search-Tree)
+* [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
 
 
-## [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
+### [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
 
 
-## [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
+### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
 
 
-## [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
+### [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
 
 
-## [Graph](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Graph)
+### [Graph](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Graph)
+
+## Algorithms
+### Binary Search
