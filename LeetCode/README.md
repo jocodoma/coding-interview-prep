@@ -6,13 +6,13 @@
   - [x] [0026 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)  
   - [x] [0027 Remove Element](https://leetcode.com/problems/remove-element/)  
   - [x] [0088 Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)  
-  - [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
-  - [0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)  
+  - [x] [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
+  - [x] [0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)  
   - [x] [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
   - [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
-[0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)  
+  - [x] [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)  
   - [x] [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)  
-  - [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)  
+  - [x] [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)  
   - [x] [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)  
 
 ## Data Structures
@@ -24,8 +24,10 @@
 * [LeetCode 0238]: [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) -- Solutions: [C++](Problems/0238_Product_of_Array_Except_Self/product_of_array_except_self.cpp)
 * [LeetCode 0350]: [Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/) -- Solutions: [C++](Problems/0350_Intersection_of_Two_Arrays_II/intersection_of_two_arrays_ii.cpp)
 * [LeetCode 0448]: [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) -- Solutions: [C++](Problems/0448_Find_All_Numbers_Disappeared_in_an_Array/find_all_numbers_disappeared_in_an_array.cpp)
+* [LeetCode 0485]: [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/) -- Solutions: [C++](Problems/0485_Max_Consecutive_Ones/max_consecutive_ones.cpp)
 * [LeetCode 0581]: [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray/) -- Solutions: [C++](Problems/0581_Shortest_Unsorted_Continuous_Subarray/shortest_unsorted_continuous_subarray.cpp)
 * [LeetCode 0977]: [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) -- Solutions: [C++](Problems/0977_Squares_of_a_Sorted_Array/squares_of_a_sorted_array.cpp)
+* [LeetCode 1089]: [Duplicate Zeros](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) -- Solutions: [C++](Problems/1089_Duplicate_Zeros/duplicate_zeros.cpp)
 * [LeetCode 1295]: [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) -- Solutions: [C++](Problems/1295_Find_Numbers_with_Even_Number_of_Digits/find_numbers_with_even_number_of_digits.cpp)
 
 
