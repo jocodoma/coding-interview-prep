@@ -17,8 +17,8 @@
 
 ## Data Structures
 ### [Array](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Array)
-* [LeetCode 0026]: [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -- Solutions: [C++](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.cpp)
-* [LeetCode 0027]: [Remove Element](https://leetcode.com/problems/remove-element/) -- Solutions: [C++](Problems/0027_Remove_Element/remove_element.cpp)
+* [LeetCode 0026]: [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -- Solutions: [C++](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.cpp) / [Python](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.py)
+* [LeetCode 0027]: [Remove Element](https://leetcode.com/problems/remove-element/) -- Solutions: [C++](Problems/0027_Remove_Element/remove_element.cpp) / [Python](Problems/0027_Remove_Element/remove_element.py)
 * [LeetCode 0053]: [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) -- Solutions: [C++](Problems/0053_Maximum_Subarray/maximum_subarray.cpp) / [Python](Problems/0053_Maximum_Subarray/maximum_subarray.py) / [Javascript](Problems/0053_Maximum_Subarray/maximum_subarray.js)
 * [LeetCode 0088]: [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/) -- Solutions: [C++](Problems/0088_Merge_Sorted_Array/merge_sorted_array.cpp)
 * [LeetCode 0238]: [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) -- Solutions: [C++](Problems/0238_Product_of_Array_Except_Self/product_of_array_except_self.cpp)
