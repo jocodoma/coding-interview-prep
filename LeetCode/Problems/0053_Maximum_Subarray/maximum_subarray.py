@@ -23,3 +23,6 @@ print(Solution().maxSubArray(nums))
 
 nums = [-1]
 print(Solution().maxSubArray(nums))
+
+nums = [-2147483647]
+print(Solution().maxSubArray(nums))
