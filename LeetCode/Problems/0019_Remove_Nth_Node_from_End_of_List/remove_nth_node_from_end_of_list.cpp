@@ -1,39 +1,45 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
+#include <iostream>
+
+using namespace std;
+
+// Definition for singly-linked list
+struct ListNode{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
+};
+
+class Solution{
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        // return bruteForce(head, n);
-        return twoPointers(head, n);
+    Solution(){}
+    ListNode* removeNthFromEnd(ListNode* head, int n){
+        // return twoPass(head, n);
+        return onePass(head, n);  // using two pointers
     }
 
 private:
-    // time complexity: O(2L) = O(L), (2L−n) operations
+    // time complexity: O(2n) = O(n)
     // space complexity: O(1)
-    ListNode* bruteForce(ListNode* head, int n){
-        if(!head) return NULL;
+    ListNode* twoPass(ListNode* head, int n){
+        if(!head)
+            return nullptr;
 
-        ListNode dummyHead(0);  // to handle if there's only one item in the list
+        ListNode dummyHead(0);
         dummyHead.next = head;
 
-        ListNode *curr = head;
-        int len = 0;
-
         // find out the length of the list
+        int length = 0;
+        ListNode *curr = head;
         while(curr){
+            length++;
             curr = curr->next;
-            len++;
         }
 
         // traverse to (n-1)-th node
         curr = &dummyHead;
-        int i = len - n;
+        int i = length - n;
         while(i){
             curr = curr->next;
             i--;
@@ -41,37 +47,86 @@ private:
 
         // remove n-th node
         ListNode *unwanted = curr->next;
-        ListNode *next = unwanted->next;
-        curr->next = next;
-        delete unwanted;
+        curr->next = unwanted->next;
+        delete(unwanted);
 
         return dummyHead.next;
     }
 
-    // time complexity: O(L), space complexity: O(1)
-    ListNode* twoPointers(ListNode* head, int n){
-        if(!head) return NULL;
+    // time complexity: O(n)
+    // space complexity: O(1)
+    ListNode* onePass(ListNode* head, int n){
+        if(!head)
+            return nullptr;
 
         ListNode dummyHead(0);
         dummyHead.next = head;
 
-        // the distance between slow and fast is n
         ListNode *slow = &dummyHead, *fast = &dummyHead;
+
+        // the distance between slow and fast is n
         for(int i = 0; i < n; i++)
             fast = fast->next;
 
         // traverse to (n-1)-th node
         while(fast->next){
-            fast = fast->next;
             slow = slow->next;
+            fast = fast->next;
         }
 
         // remove n-th node
         ListNode *unwanted = slow->next;
-        ListNode *next = unwanted->next;
-        slow->next = next;
-        delete unwanted;
+        slow->next = unwanted->next;
+        delete(unwanted);
 
         return dummyHead.next;
     }
 };
+
+void printList(ListNode* head){
+    ListNode *curr = head;
+
+    if(!curr){
+        cout << "Empty list\n";
+        return;
+    }
+
+    cout << "(";
+    while(curr){
+        cout << curr->val;
+        if(curr->next)
+            cout << "->";
+        curr = curr->next;
+    }
+    cout << ")\n";
+}
+
+void deleteList(ListNode** head){
+    ListNode *curr = *head;
+    ListNode *next;
+
+    while(curr){
+        next = curr->next;
+        delete(curr);
+        curr = next;
+    }
+
+    *head = nullptr;
+}
+
+int main(){
+    int n = 2;
+    ListNode *l = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+    cout << "Input: n = " << n << ", ";
+    printList(l);
+
+    Solution sol;
+    sol.removeNthFromEnd(l, n);
+    cout << "Output: ";
+    printList(l);
+
+    deleteList(&l);
+    // printList(l);
+
+    return 0;
+}

@@ -22,28 +22,6 @@ public:
     }
 
 private:
-    ListNode* iterative(ListNode* l1, ListNode* l2){
-        int carry = 0;
-        ListNode dummyHead(0);
-        ListNode *currNode = &dummyHead;  // to avoid potential memory leak
-
-        while(l1 || l2 || carry){
-            int x = l1 ? l1->val : 0;
-            int y = l2 ? l2->val : 0;
-            int sum = x + y + carry;
-            carry = sum / 10;
-
-            ListNode *node = new ListNode(sum % 10);
-            currNode->next = node;
-            currNode = currNode->next;
-
-            l1 = l1 ? l1->next : nullptr;
-            l2 = l2 ? l2->next : nullptr;
-        }
-
-        return dummyHead.next;
-    }
-
     ListNode* recursive(ListNode* l1, ListNode* l2){
         return helper(l1, l2, 0);
     }
@@ -68,6 +46,28 @@ private:
         l1 = l1 ? l1->next : nullptr;
         l2 = l2 ? l2->next : nullptr;
         currNode->next = helper(l1, l2, carry);
+
+        return dummyHead.next;
+    }
+
+    ListNode* iterative(ListNode* l1, ListNode* l2){
+        int carry = 0;
+        ListNode dummyHead(0);
+        ListNode *currNode = &dummyHead;  // to avoid potential memory leak
+
+        while(l1 || l2 || carry){
+            int x = l1 ? l1->val : 0;
+            int y = l2 ? l2->val : 0;
+            int sum = x + y + carry;
+            carry = sum / 10;
+
+            ListNode *node = new ListNode(sum % 10);
+            currNode->next = node;
+            currNode = currNode->next;
+
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
+        }
 
         return dummyHead.next;
     }
@@ -122,9 +122,9 @@ int main(){
     deleteList(&l1);
     deleteList(&l2);
     deleteList(&l3);
-    printList(l1);
-    printList(l2);
-    printList(l3);
+    // printList(l1);
+    // printList(l2);
+    // printList(l3);
 
     return 0;
 }
