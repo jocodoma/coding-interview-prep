@@ -2,28 +2,30 @@
 
 using namespace std;
 
-// Definition for singly-linked list.
-struct ListNode {
+// Definition for singly-linked list
+struct ListNode{
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
-class Solution {
+class Solution{
 public:
+    Solution(){}
+
     // time complexity: O(max(m,n)), space complexity: O(max(m,n))
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        return iterative(l1, l2);
+    ListNode* addTwoNumber(ListNode* l1, ListNode* l2){
         // return recursive(l1, l2);
+        return iterative(l1, l2);
     }
 
 private:
     ListNode* iterative(ListNode* l1, ListNode* l2){
-        ListNode dummyHead(0);  // to avoid potential memory leak
-        ListNode *curr = &dummyHead;
         int carry = 0;
+        ListNode dummyHead(0);
+        ListNode *currNode = &dummyHead;  // to avoid potential memory leak
 
         while(l1 || l2 || carry){
             int x = l1 ? l1->val : 0;
@@ -32,11 +34,11 @@ private:
             carry = sum / 10;
 
             ListNode *node = new ListNode(sum % 10);
-            curr->next = node;
-            curr = curr->next;
+            currNode->next = node;
+            currNode = currNode->next;
 
-            l1 = l1 ? l1->next : NULL;
-            l2 = l2 ? l2->next : NULL;
+            l1 = l1 ? l1->next : nullptr;
+            l2 = l2 ? l2->next : nullptr;
         }
 
         return dummyHead.next;
@@ -47,11 +49,12 @@ private:
     }
 
     ListNode* helper(ListNode* l1, ListNode* l2, int carry){
-        if(!l1 && !l2 && !carry)
-            return NULL;
 
-        ListNode dummyHead(0);  // to avoid potential memory leak
-        ListNode *curr = &dummyHead;
+        if(!l1 && !l2 && !carry)
+            return nullptr;
+
+        ListNode dummyHead(0);
+        ListNode *currNode = &dummyHead;  // to avoid potential memory leak
 
         int x = l1 ? l1->val : 0;
         int y = l2 ? l2->val : 0;
@@ -59,12 +62,12 @@ private:
         carry = sum / 10;
 
         ListNode *node = new ListNode(sum % 10);
-        curr->next = node;
-        curr = curr->next;
+        currNode->next = node;
+        currNode = currNode->next;
 
-        l1 = l1 ? l1->next : NULL;
-        l2 = l2 ? l2->next : NULL;
-        curr->next = helper(l1, l2, carry);
+        l1 = l1 ? l1->next : nullptr;
+        l2 = l2 ? l2->next : nullptr;
+        currNode->next = helper(l1, l2, carry);
 
         return dummyHead.next;
     }
@@ -73,30 +76,55 @@ private:
 void printList(ListNode* head){
     ListNode *node = head;
 
+    if(!node){
+        cout << "Empty list\n";
+        return;
+    }
+
+    cout << "(";
     while(node){
         cout << node->val;
         if(node->next)
             cout << " -> ";
         node = node->next;
     }
+    cout << ")\n";
+}
+
+void deleteList(ListNode** head){
+    ListNode *curr = *head;
+    ListNode *next;
+
+    while(curr){
+        next = curr->next;
+        delete(curr);
+        curr = next;
+    }
+
+    *head = nullptr;
 }
 
 int main(){
+
     ListNode *l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
     ListNode *l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
-    cout << "Input: (";
+    cout << "Input: \n";
     printList(l1);
-    cout << ") + (";
     printList(l2);
-    cout << ")\n";
 
     Solution sol;
-    ListNode *l3 = sol.addTwoNumbers(l1, l2);
+    ListNode *l3 = sol.addTwoNumber(l1, l2);
 
-    cout << "Output: ";
+    cout << "\nOutput: \n";
     printList(l3);
-    cout << "\n";
+
+    deleteList(&l1);
+    deleteList(&l2);
+    deleteList(&l3);
+    printList(l1);
+    printList(l2);
+    printList(l3);
 
     return 0;
 }
