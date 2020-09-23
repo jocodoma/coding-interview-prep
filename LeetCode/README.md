@@ -32,6 +32,9 @@
 
 
 ### [Linked List](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Linked-List)
+* [LeetCode 0002]: [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) -- Solutions: [C++](Problems/0002_Add_Two_Numbers/add_two_numbers.cpp) / [Python](Problems/0002_Add_Two_Numbers/add_two_numbers.py)
+* [LeetCode 0019]: [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) -- Solutions: [C++](Problems/0019_Remove_Nth_Node_from_End_of_List/remove_nth_node_from_end_of_list.cpp)
+* [LeetCode 0021]: [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) -- Solutions: [C++](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.cpp) / [Python](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.py) / [Javascript](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.js)
 
 
 ### [Stack](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Stack)

@@ -4,18 +4,18 @@ class ListNode:
         self.val = val
         self.next = next
 
-    def printList(self, l):
+    def printList(self, l) -> str:
         value = []
         while(l):
             value.append(l.val)
             l = l.next
-        print('->'.join(map(str, value)))
+        return(' -> '.join(map(str, value)))
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        return self.recursiveHelper(l1, l2, 0)
-    
-    def recursiveHelper(self, l1, l2, carry) -> ListNode:
+        return self.__recursiveHelper(l1, l2, 0)
+
+    def __recursiveHelper(self, l1, l2, carry) -> ListNode:
         if l1 == None and l2 == None and carry == 0:
             return None
 
@@ -27,13 +27,13 @@ class Solution:
 
         l1 = l1.next if l1 != None else None
         l2 = l2.next if l2 != None else None
-        new_node.next = self.recursiveHelper(l1,l2,carry)
+        new_node.next = self.__recursiveHelper(l1,l2,carry)
 
         return new_node
 
 l1 = ListNode(2, ListNode(4, ListNode(3)))
 l2 = ListNode(5, ListNode(6, ListNode(4)))
+print("Input: (" + ListNode().printList(l1) + ") + (" + ListNode().printList(l2) + ")")
+
 l3 = Solution().addTwoNumbers(l1, l2)
-ListNode().printList(l1)
-ListNode().printList(l2)
-ListNode().printList(l3)
+print("Output: " + ListNode().printList(l3))

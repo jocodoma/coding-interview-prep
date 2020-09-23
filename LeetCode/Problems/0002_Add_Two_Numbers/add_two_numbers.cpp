@@ -1,11 +1,16 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+#include <iostream>
+
+using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 class Solution {
 public:
     // time complexity: O(max(m,n)), space complexity: O(max(m,n))
@@ -14,6 +19,7 @@ public:
         // return recursive(l1, l2);
     }
 
+private:
     ListNode* iterative(ListNode* l1, ListNode* l2){
         ListNode dummyHead(0);  // to avoid potential memory leak
         ListNode *curr = &dummyHead;
@@ -46,7 +52,7 @@ public:
 
         ListNode dummyHead(0);  // to avoid potential memory leak
         ListNode *curr = &dummyHead;
-        
+
         int x = l1 ? l1->val : 0;
         int y = l2 ? l2->val : 0;
         int sum = x + y + carry;
@@ -59,7 +65,38 @@ public:
         l1 = l1 ? l1->next : NULL;
         l2 = l2 ? l2->next : NULL;
         curr->next = helper(l1, l2, carry);
-        
+
         return dummyHead.next;
     }
 };
+
+void printList(ListNode* head){
+    ListNode *node = head;
+
+    while(node){
+        cout << node->val;
+        if(node->next)
+            cout << " -> ";
+        node = node->next;
+    }
+}
+
+int main(){
+    ListNode *l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+    ListNode *l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+    cout << "Input: (";
+    printList(l1);
+    cout << ") + (";
+    printList(l2);
+    cout << ")\n";
+
+    Solution sol;
+    ListNode *l3 = sol.addTwoNumbers(l1, l2);
+
+    cout << "Output: ";
+    printList(l3);
+    cout << "\n";
+
+    return 0;
+}
