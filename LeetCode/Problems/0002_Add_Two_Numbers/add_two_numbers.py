@@ -29,11 +29,11 @@ def printList(l) -> str:
     while(l):
         value.append(l.val)
         l = l.next
-    return(' -> '.join(map(str, value)))
+    return('(' + ' -> '.join(map(str, value)) + ')')
 
 l1 = ListNode(2, ListNode(4, ListNode(3)))
 l2 = ListNode(5, ListNode(6, ListNode(4)))
-print("Input: (" + printList(l1) + ") + (" + printList(l2) + ")")
+print("Input: " + printList(l1) + " + " + printList(l2))
 
 l3 = Solution().addTwoNumbers(l1, l2)
 print("Output: " + printList(l3))

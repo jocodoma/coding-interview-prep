@@ -83,22 +83,23 @@ private:
     }
 };
 
-void printList(ListNode* head){
+string printList(ListNode* const head){
+    string str;
     ListNode *curr = head;
 
-    if(!curr){
-        cout << "Empty list\n";
-        return;
-    }
+    if(!curr)
+        return str.append("Empty list");
 
-    cout << "(";
+    str.append("(");
     while(curr){
-        cout << curr->val;
+        str.append(std::to_string(curr->val));
         if(curr->next)
-            cout << "->";
+            str.append(" -> ");
         curr = curr->next;
     }
-    cout << ")\n";
+    str.append(")");
+
+    return str;
 }
 
 void deleteList(ListNode** head){
@@ -110,23 +111,20 @@ void deleteList(ListNode** head){
         delete(curr);
         curr = next;
     }
-
     *head = nullptr;
 }
 
 int main(){
     int n = 2;
     ListNode *l = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-    cout << "Input: n = " << n << ", ";
-    printList(l);
+    cout << "Input: " << printList(l) << ", n = " << n << "\n";
 
     Solution sol;
     sol.removeNthFromEnd(l, n);
-    cout << "Output: ";
-    printList(l);
+    cout << "Output: " << printList(l) << "\n";
 
     deleteList(&l);
-    // printList(l);
+    // cout << printList(l) << "\n";
 
     return 0;
 }

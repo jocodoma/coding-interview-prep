@@ -10,6 +10,7 @@ public:
         // return swapValues(nums, val);
     }
 
+private:
     // time complexity: O(n), space complexity: O(1)
     int twoPointers(vector<int>& nums, int val){
         int i = 0;
@@ -37,42 +38,29 @@ public:
     }
 };
 
-// The nums is passed by constant pointer and cannot be changed by this function
-void printVector(const vector<int>* nums, int len) {
-    cout << "[";
+// nums is passed by constant reference and cannot be changed by this function
+string printVector(const vector<int>& nums, int len){
+    string str;
+
+    str.append("[");
     for(int i = 0; i < len; i++){
         if(i != 0)
-            cout << ", ";
-        // cout << nums->at(i);
-        cout << (*nums)[i];
+            str.append(", ");
+        str.append(std::to_string(nums[i]));
     }
-    cout << "]\n";
+    str.append("]");
+
+    return str;
 }
 
-// The nums is passed by constant reference and cannot be changed by this function
-// void printVector(const vector<int>& nums, int len) {
-//     cout << "[";
-//     for(int i = 0; i < len; i++){
-//         if(i != 0)
-//             cout << ", ";
-//         // cout << nums.at(i);
-//         cout << nums[i];
-//     }
-//     cout << "]\n";
-// }
-
 int main(){
-    vector<int> nums{3, 2, 2, 3};
     int val = 3;
-
-    cout << "Input: ";
-    printVector(&nums, 4);
+    vector<int> nums({3, 2, 2, 3});
+    cout << "Input: " << printVector(nums, 4) << "\n";
 
     Solution sol;
     int len = sol.removeElement(nums, val);
-
-    cout << "Output: ";
-    printVector(&nums, len);
+    cout << "Output: " << printVector(nums, len) << "\n";
 
     return 0;
 }

@@ -27,7 +27,6 @@ private:
     }
 
     ListNode* helper(ListNode* l1, ListNode* l2, int carry){
-
         if(!l1 && !l2 && !carry)
             return nullptr;
 
@@ -73,22 +72,23 @@ private:
     }
 };
 
-void printList(ListNode* head){
-    ListNode *node = head;
+string printList(ListNode* const head){
+    string str;
+    ListNode *curr = head;
 
-    if(!node){
-        cout << "Empty list\n";
-        return;
-    }
+    if(!curr)
+        return str.append("Empty list");
 
-    cout << "(";
-    while(node){
-        cout << node->val;
-        if(node->next)
-            cout << " -> ";
-        node = node->next;
+    str.append("(");
+    while(curr){
+        str.append(std::to_string(curr->val));
+        if(curr->next)
+            str.append(" -> ");
+        curr = curr->next;
     }
-    cout << ")\n";
+    str.append(")");
+
+    return str;
 }
 
 void deleteList(ListNode** head){
@@ -100,7 +100,6 @@ void deleteList(ListNode** head){
         delete(curr);
         curr = next;
     }
-
     *head = nullptr;
 }
 
@@ -110,21 +109,21 @@ int main(){
     ListNode *l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
     cout << "Input: \n";
-    printList(l1);
-    printList(l2);
+    cout << printList(l1) << "\n";
+    cout << printList(l2) << "\n";
 
     Solution sol;
     ListNode *l3 = sol.addTwoNumber(l1, l2);
 
     cout << "\nOutput: \n";
-    printList(l3);
+    cout << printList(l3) << "\n";
 
     deleteList(&l1);
     deleteList(&l2);
     deleteList(&l3);
-    // printList(l1);
-    // printList(l2);
-    // printList(l3);
+    // cout << printList(l1) << "\n";
+    // cout << printList(l2) << "\n";
+    // cout << printList(l3) << "\n";
 
     return 0;
 }

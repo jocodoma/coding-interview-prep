@@ -1,19 +1,19 @@
 # [LeetCode](https://leetcode.com/problemset/algorithms/)
 ![Language](https://img.shields.io/badge/Language-C++%2011-yellow) ![Language](https://img.shields.io/badge/Language-JavaScript-yellow) ![Language](https://img.shields.io/badge/Language-Python-yellow) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-* Top 100 Liked Questions - https://leetcode.com/problemset/top-100-liked-questions/  
-  ![Progress](https://img.shields.io/badge/Progress-49%20%2F%20100-ff69b4.svg)
-* Other Questions - https://leetcode.com/problemset/  
-  - [x] [0026 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)  
-  - [x] [0027 Remove Element](https://leetcode.com/problems/remove-element/)  
-  - [x] [0088 Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)  
-  - [x] [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)  
-  - [x] [0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)  
-  - [x] [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)  
-  - [x] [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)  
-  - [x] [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)  
-  - [x] [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)  
-  - [x] [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)  
-  - [x] [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)  
+* [Top 100 Liked Questions](https://leetcode.com/problemset/top-100-liked-questions/)
+  - ![Progress](https://img.shields.io/badge/Progress-49%20%2F%20100-ff69b4.svg)
+* Other Questions - https://leetcode.com/problemset/
+  - [x] [0026 Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+  - [x] [0027 Remove Element](https://leetcode.com/problems/remove-element/)
+  - [x] [0088 Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
+  - [x] [0144 Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+  - [x] [0145 Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+  - [x] [0350 Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
+  - [x] [0383 Ransom Note](https://leetcode.com/problems/ransom-note/)
+  - [x] [0485 Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
+  - [x] [0977 Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+  - [x] [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)
+  - [x] [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)
 
 ## Data Structures
 ### [Array](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Array)

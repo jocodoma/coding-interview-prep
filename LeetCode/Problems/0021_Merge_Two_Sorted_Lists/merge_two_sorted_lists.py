@@ -4,13 +4,6 @@ class ListNode:
         self.val = val
         self.next = next
 
-    def printList(self, l):
-        value = []
-        while(l):
-            value.append(l.val)
-            l = l.next
-        print('->'.join(map(str, value)))
-
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         mergeHead = currNode = ListNode(0)
@@ -35,9 +28,16 @@ class Solution:
 #             l2.next = self.mergeTwoLists(l1, l2.next)
 #             return l2
 
+def printList(l) -> str:
+    value = []
+    while(l):
+        value.append(l.val)
+        l = l.next
+    return('(' + '->'.join(map(str, value)) + ')')
+
 l1 = ListNode(1, ListNode(2, ListNode(4)))
 l2 = ListNode(1, ListNode(3, ListNode(4)))
+print("Input: " + printList(l1) + ", " + printList(l2))
+
 l3 = Solution().mergeTwoLists(l1, l2)
-ListNode().printList(l1)
-ListNode().printList(l2)
-ListNode().printList(l3)
+print("Output: " + printList(l3))

@@ -11,6 +11,7 @@ public:
         // return trackMaxSum2(nums);
     }
 
+private:
     // time complexity: O(n), space complexity: O(1)
     int trackMaxSum(vector<int>& nums){
         if(nums.empty())
@@ -39,32 +40,24 @@ public:
     }
 };
 
-// The nums is passed by constant pointer and cannot be changed by this function
-void printVector(const vector<int>* nums){
-    cout << "[";
-    for(const auto& n : *nums){
-        if(n != *nums->begin())
-            cout << ", ";
-        cout << n;
+// nums is passed by constant pointer and cannot be changed by this function
+string printVector(const vector<int>& nums){
+    string str;
+
+    str.append("[");
+    for(const auto& n : nums){
+        if(n != *nums.begin())
+            str.append(", ");
+        str.append(std::to_string(n));
     }
-    cout << "]\n";
+    str.append("]");
+
+    return str;
 }
 
-// The nums is passed by constant reference and cannot be changed by this function
-// void printVector(const vector<int>& nums){
-//     cout << "[";
-//     for(const auto& n : nums){
-//         if(n != *nums.begin())
-//             cout << ", ";
-//         cout << n;
-//     }
-//     cout << "]";
-// }
-
 int main(){
-    vector<int> nums{-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    cout << "Input: ";
-    printVector(&nums);
+    vector<int> nums({-2, 1, -3, 4, -1, 2, 1, -5, 4});
+    cout << "Input: " << printVector(nums) << "\n";
 
     Solution sol;
     cout << "Output: " << sol.maxSubArray(nums) << "\n";

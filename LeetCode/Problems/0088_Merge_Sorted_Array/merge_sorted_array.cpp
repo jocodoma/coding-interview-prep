@@ -9,6 +9,7 @@ public:
         return solution(nums1, m, nums2, n);
     }
 
+private:
     // time complexity: O(n+m)
     // space complexity: O(1)
     void solution(vector<int>& nums1, int m, vector<int>& nums2, int n){
@@ -21,15 +22,19 @@ public:
     }
 };
 
-// The nums is passed by constant pointer and cannot be changed by this function
-void printVector(const vector<int>* nums){
-    cout << "[";
-    for(const auto& n : *nums){
-        if(n != *nums->begin())
-            cout << ", ";
-        cout << n;
+// nums is passed by constant pointer and cannot be changed by this function
+string printVector(const vector<int>& nums){
+    string str;
+
+    str.append("[");
+    for(const auto& n : nums){
+        if(n != *nums.begin())
+            str.append(", ");
+        str.append(std::to_string(n));
     }
-    cout << "]";
+    str.append("]");
+
+    return str;
 }
 
 int main(){
@@ -37,18 +42,13 @@ int main(){
     vector<int> nums1 = {1,2,3,0,0,0};
     vector<int> nums2 = {2,5,6};
 
-    cout << "Input:\n";
-    printVector(&nums1);
-    cout << ",  m = " << m << "\n";
-    printVector(&nums2);
-    cout << ",  n = " << n << "\n";
+    cout << "Input: \n";
+    cout << printVector(nums1) << ",  m = " << m << "\n";
+    cout << printVector(nums2) << ",  n = " << n << "\n";
 
     Solution sol;
     sol.merge(nums1, m, nums2, n);
-
-    cout << "\nOutput: ";
-    printVector(&nums1);
-    cout << "\n";
+    cout << "\nOutput: \n" << printVector(nums1) << "\n";
 
     return 0;
 }
