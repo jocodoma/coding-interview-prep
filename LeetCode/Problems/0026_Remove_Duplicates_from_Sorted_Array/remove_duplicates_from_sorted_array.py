@@ -14,10 +14,15 @@ class Solution:
 
         return i+1
 
-nums = [1, 1, 2]
+def printList(nums: List[int]) -> str:
+    return('[' + ', '.join(map(str, nums)) + ']')
+
+nums = [1,1,2]
+print("Input: " + printList(nums))
 size = Solution().removeDuplicates(nums)
-print(nums[:size])
+print("Output: " + printList(nums[:size]))
 
 nums = [0,0,1,1,1,2,2,3,3,4]
+print("\nInput: " + printList(nums))
 size = Solution().removeDuplicates(nums)
-print(nums[:size])
+print("Output: " + printList(nums[:size]))

@@ -75,7 +75,7 @@ private:
     }
 };
 
-// nums is passed by constant pointer and cannot be changed by this function
+// nums is passed by constant reference and cannot be changed by this function
 string printVector(const vector<int>& nums){
     string str;
 

@@ -19,7 +19,17 @@ class Solution:
                 j -= 1
             k -= 1
 
+def printList(nums: List[int]) -> str:
+    return ("[" + (', ').join(map(str, nums)) + "]")
+
 nums1 = [1,2,3,0,0,0]
 nums2 = [2,5,6]
+m = 3
+n = 3
+print("Input: ")
+print(printList(nums1) + ", m = " + str(m))
+print(printList(nums2) + ", n = " + str(n))
+
 Solution().merge(nums1, 3, nums2, 3)
+print("\nOutput: ")
 print(nums1)

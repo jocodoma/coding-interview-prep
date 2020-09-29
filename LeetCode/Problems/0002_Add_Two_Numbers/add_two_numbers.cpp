@@ -108,15 +108,12 @@ int main(){
     ListNode *l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
     ListNode *l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
-    cout << "Input: \n";
-    cout << printList(l1) << "\n";
-    cout << printList(l2) << "\n";
+    cout << "Input: " << printList(l1) << " + " << printList(l2) << "\n";
 
     Solution sol;
     ListNode *l3 = sol.addTwoNumber(l1, l2);
 
-    cout << "\nOutput: \n";
-    cout << printList(l3) << "\n";
+    cout << "Output: " << printList(l3) << "\n";
 
     deleteList(&l1);
     deleteList(&l2);

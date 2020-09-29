@@ -68,7 +68,7 @@ int main(){
     ListNode *l3 = sol.mergeTwoLists(l1, l2);
     cout << "Output: " << printList(l3) << "\n";
 
-    deleteList(&l3);
+    deleteList(&l3);  // since l3 = l1 + l2, delete l3 should also delete l1 and l2
     l1 = nullptr;
     l2 = nullptr;
 

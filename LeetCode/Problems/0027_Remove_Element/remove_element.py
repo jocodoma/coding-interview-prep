@@ -34,18 +34,18 @@ class Solution:
         return l
 
 def printList(nums: List[int]) -> str:
-    return (', ').join(map(str, nums))
+    return ("[" + (', ').join(map(str, nums)) + "]")
 
 nums = [3,2,2,3]
 val = 3
-print("Input: nums = [" + printList(nums) + "], val = " + str(val))
+print("Input: nums = " + printList(nums) + ", val = " + str(val))
 
 size = Solution().removeElement(nums, val)
-print("Output: nums = [" + printList(nums[:size]) + "]\n")
+print("Output: nums = " + printList(nums[:size]))
 
 nums = [0,1,2,2,3,0,4,2]
 val = 2
-print("Input: nums = [" + printList(nums) + "], val = " + str(val))
+print("\nInput: nums = " + printList(nums) + ", val = " + str(val))
 
 size = Solution().removeElement(nums, val)
-print("Output: nums = [" + printList(nums[:size]) + "]")
+print("Output: nums = " + printList(nums[:size]))
