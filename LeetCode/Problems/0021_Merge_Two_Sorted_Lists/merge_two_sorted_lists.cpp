@@ -13,6 +13,40 @@ struct ListNode{
 class Solution{
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2){
+        // return recursive(l1, l2);
+        return iterative(l1, l2);
+    }
+
+private:
+    // time complexity: O(max(m,n)), space complexity: O(max(m,n))
+    ListNode* recursive(ListNode* l1, ListNode* l2){
+        ListNode dummyHead(0);
+        ListNode *node = &dummyHead;
+
+        // base case
+        if(!l1)
+            return l2;
+
+        if(!l2)
+            return l1;
+
+        // pick either l1 or l2
+        if(l1->val < l2->val){
+            node->next = l1;
+            node = node->next;
+            node->next = recursive(l1->next, l2);
+        }
+        else{
+            node->next = l2;
+            node = node->next;
+            node->next = recursive(l1, l2->next);
+        }
+
+        return dummyHead.next;
+    }
+
+    // time complexity: O(max(m,n)), space complexity: O(1)
+    ListNode* iterative(ListNode* l1, ListNode* l2){
         ListNode dummyHead(0);  // to avoid potential memory leak
         ListNode *currNode = &dummyHead;
 

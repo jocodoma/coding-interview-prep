@@ -93,11 +93,9 @@ private:
         while(l1 && l2){
             ListNode *&nextNode = (l1->val < l2->val) ? l1 : l2;
             node->next = nextNode;
-
             nextNode = nextNode->next;
             node = node->next;
         }
-
         node->next = l1 ? l1 : l2;
 
         return dummyHead.next;
