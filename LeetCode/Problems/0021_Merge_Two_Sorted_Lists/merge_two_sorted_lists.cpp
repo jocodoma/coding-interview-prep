@@ -50,6 +50,19 @@ private:
         ListNode dummyHead(0);  // to avoid potential memory leak
         ListNode *currNode = &dummyHead;
 
+        // while(l1 && l2){
+        //     if(l1->val < l2->val){
+        //         currNode->next = l1;
+        //         l1 = l1->next;
+        //         currNode = currNode->next;
+        //     }
+        //     else{
+        //         currNode->next = l2;
+        //         l2 = l2->next;
+        //         currNode = currNode->next;
+        //     }
+        // }
+
         while(l1 && l2){
             ListNode *&nextNode = (l1->val < l2->val) ? l1 : l2;
             currNode->next = nextNode;
