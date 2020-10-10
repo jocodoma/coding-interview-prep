@@ -11,7 +11,7 @@ int main(){
     for(const int& i : v)
         std::cout << i << ' ';
     std::cout << std::endl;
-    
+
     // access by value
     // the type of i is int
     for(auto i : v)
@@ -45,7 +45,12 @@ int main(){
     // the loop variable need not be used
     for([[maybe_unused]] int n : a)
         std::cout << "1" << ' ';
-    std::cout << std::endl;  
+    std::cout << std::endl;
+
+    // the init-statement (C++20)
+    for(auto n = v.size(); auto i : v)
+        std::cout << --n + i << ' ';
+    std::cout << '\n';
 
     return 0;
 }
