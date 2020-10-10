@@ -1,6 +1,14 @@
-class Solution {
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+class Solution{
 public:
-    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+    Solution(){}
+    vector<int> intersect(vector<int>& nums1, vector<int>& nums2){
         // return hashTable(nums1, nums2);
         return sortedTwoPointers(nums1, nums2);
     }
@@ -10,19 +18,19 @@ private:
     // space complexity: O(min(m,n)), choose the smaller one if possible
     vector<int> hashTable(vector<int>& nums1, vector<int>& nums2){
         if(nums1.size() > nums2.size())
-            hashTable(nums2, nums1);
+            return hashTable(nums2, nums1);
 
         unordered_map<int, int> map;
         vector<int> res;
 
-        // build the map with smaller size of input array
-        for(int num : nums1)
-            map[num]++;
+        // build the map with the smaller size of input array
+        for(int n : nums1)
+            map[n]++;
 
-        for(int num : nums2)
-            if(map.count(num) && --map[num] >= 0)
-                res.push_back(num);
-        
+        for(int n : nums2)
+            if(map.count(n) && --map[n] >= 0)
+                res.push_back(n);
+
         return res;
     }
 
@@ -33,7 +41,7 @@ private:
         sort(nums2.begin(), nums2.end());
 
         vector<int> res;
-        int p1 = 0, p2 = 0;
+        unsigned int p1 = 0, p2 = 0;
 
         while(p1 < nums1.size() && p2 < nums2.size()){
             if(nums1[p1] == nums2[p2]){
@@ -52,3 +60,41 @@ private:
         return res;
     }
 };
+
+string printVector(const vector<int>& nums){
+    if(nums.empty())
+        return "Empty Vector";
+
+    string str;
+    str.append("[");
+    for(auto it = nums.begin(); it != nums.end(); ++it){
+        if(it != nums.begin())
+            str.append(", ");
+        str.append(std::to_string(*it));
+    }
+    str.append("]");
+
+    return str;
+}
+
+int main(){
+    vector<int> nums1({1,2,2,1});
+    vector<int> nums2({2,2});
+
+    cout << "Input: nums1 = " << printVector(nums1) << ", nums2 = " << printVector(nums2) << "\n";
+
+    Solution sol;
+    vector<int> output;
+    output = sol.intersect(nums1, nums2);
+    cout << "Output: "<< printVector(output) << "\n\n";
+
+
+    nums1 = {4,9,5};
+    nums2 = {9,4,9,8,4};
+    cout << "Input: nums1 = " << printVector(nums1) << ", nums2 = " << printVector(nums2) << "\n";
+
+    output = sol.intersect(nums1, nums2);
+    cout << "Output: "<< printVector(output) << "\n";
+
+    return 0;
+}
