@@ -28,13 +28,16 @@ private:
             map[n]++;
 
         for(int n : nums2)
-            if(map.count(n) && --map[n] >= 0)
+            if(map.count(n) && map[n] > 0){
+                map[n]--;
                 res.push_back(n);
+            }
 
         return res;
     }
 
     // time complexity: O(max(mlogm, nlogn)), due to sorting algorithm
+    // time complexity: O(min(m,n)), if inputs are already sorted
     // space complexity: O(1)
     vector<int> sortedTwoPointers(vector<int>& nums1, vector<int>& nums2){
         sort(nums1.begin(), nums1.end());
@@ -87,7 +90,6 @@ int main(){
     vector<int> output;
     output = sol.intersect(nums1, nums2);
     cout << "Output: "<< printVector(output) << "\n\n";
-
 
     nums1 = {4,9,5};
     nums2 = {9,4,9,8,4};
