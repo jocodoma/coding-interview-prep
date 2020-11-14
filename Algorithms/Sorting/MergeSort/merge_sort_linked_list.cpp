@@ -30,7 +30,88 @@ public:
         mergeSort_recursive(&b);
 
         // sort and merge two sublists
-        * headNode = merge(a, b);
+        *headNode = merge(a, b);
+    }
+
+    void mergeSort_iterative(ListNode** headNode){
+        ListNode *head = *headNode;
+
+        if(!head || !head->next)
+            return;
+
+        // find length of list
+        int n = findLength(head);
+
+        // divide list into sublist of size sz
+        // sz = 1, i = 0, 2, 4, 6, 8, 16, ..
+        // sz = 2, i = 0, 4, 8, 12, 16, ...
+        // sz = 4, i = 0, 8, 16, ...
+        for(int sz = 1; sz < n; sz *= 2){    // size of subarray
+
+            // for(int i = 0; i < n-sz; i += sz*2){  // number of subarrays
+            //     // find ending point of left subarray
+            //     // (sz+1) is starting point of right
+            //     int l = i;
+            //     int m = i + sz - 1;
+            //     int r = std::min(i + sz*2 - 1, n-1);  // (n-1) will be chosen if remain elements are fewer than (m*2)
+            //     merge(nums, l, m, r);
+            // }
+
+            ListNode *curr = head;
+            while(curr){
+                // split the sublist into two halves (sz is mid point)
+                ListNode *l1 = curr;
+                ListNode *l2 = curr;
+                traverseTo(&l2, sz);
+                if(!l2)
+                    l2 = curr;
+
+                // merge
+                if(l1 != l2)
+                    curr = merge_iterative2(l1, l2, sz);
+
+                // move to next sublist
+                traverseTo(&curr, sz*2);
+            }
+            if(sz == 2)
+                break;
+        }
+    }
+
+    ListNode* merge_iterative2(ListNode* l1, ListNode* l2, int sz){
+        ListNode dummyHead(0);
+        ListNode *curr = &dummyHead;
+
+        while(sz > 0){
+            while(l1 && l2){
+                if(l1->val < l2->val){
+                    curr->next = l1;
+                    l1 = l1->next;
+                    curr = curr->next;
+                }
+                else{
+                    curr->next = l2;
+                    l2 = l2->next;
+                    curr = curr->next;
+                }
+            }
+            sz--;
+        }
+
+        curr->next = l1
+
+        return dummyHead.next;
+    }
+
+    void traverseTo(ListNode** head, int num){
+        ListNode *curr = *head;
+
+        while(curr && num > 0){
+            curr = curr->next;
+            num--;
+        }
+
+        *head = curr;
     }
 
 private:
@@ -43,8 +124,8 @@ private:
         while(fast){
             fast = fast->next;
             if(fast){
-                slow = slow->next;
                 fast = fast->next;
+                slow = slow->next;
             }
         }
 
@@ -90,6 +171,19 @@ private:
         ListNode dummyHead(0);
         ListNode *node = &dummyHead;
 
+        // while(l1 && l2){
+        //     if(l1->val < l2->val){
+        //         node->next = l1;
+        //         l1 = l1->next;
+        //         node = node->next;
+        //     }
+        //     else{
+        //         node->next = l2;
+        //         l2 = l2->next;
+        //         node = node->next;
+        //     }
+        // }
+
         while(l1 && l2){
             ListNode *&nextNode = (l1->val < l2->val) ? l1 : l2;
             node->next = nextNode;
@@ -100,9 +194,21 @@ private:
 
         return dummyHead.next;
     }
+
+    int findLength(ListNode* headNode){
+        int count = 0;
+        ListNode *curr = headNode;
+
+        while(curr){
+            count++;
+            curr = curr->next;
+        }
+
+        return count;
+    }
 };
 
-string printList(ListNode* const head){
+string printList(ListNode* head){
     string str;
     ListNode *node = head;
 
@@ -140,8 +246,9 @@ int main(){
     cout << "Given linked list is " << printList(l) << "\n";
 
     Solution sol;
-    sol.mergeSort_recursive(&l);
-    cout << "Sorted linked list is " << printList(l) << "\n";
+    // sol.mergeSort_recursive(&l);
+    sol.mergeSort_iterative(&l);
+    //cout << "Sorted linked list is " << printList(l) << "\n";
 
     deleteList(&l);
 

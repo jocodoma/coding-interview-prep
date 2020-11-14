@@ -13,18 +13,18 @@ public:
 
     void mergeSortIterative(vector<int>& nums){
         int n = nums.size();
-        // divide the array into blocks of size bs
-        // bs = 1, 2, 4, 8, 16, ...
-        for(int bs = 1; bs < n; bs *= 2){  // size of block
-            // bs = 1, i = 0, 2, 4, 6, 8, ...
-            // bs = 2, i = 0, 4, 8, ...
-            // bs = 4, i = 0, 8, ...
-            for(int i = 0; i < n; i += bs*2){  // number of block
+        // divide the array into subarrays of size - sz
+        // sz = 1, 2, 4, 8, 16, ...
+        for(int sz = 1; sz < n; sz *= 2){  // size of subarray
+            // sz = 1, i = 0, 2, 4, 6, 8, 16, ...
+            // sz = 2, i = 0, 4, 8, 12, 16, ...
+            // sz = 4, i = 0, 8, 16, ...
+            for(int i = 0; i < n-sz; i += sz*2){  // number of subarrays
                 // find ending point of left subarray
-                // (bs+1) is starting point of right
+                // (sz+1) is starting point of right
                 int l = i;
-                int m = i + bs - 1;
-                int r = std::min(i + bs*2 - 1, n-1);  // (n-1) will be chosen if remain elements are fewer than (m*2)
+                int m = i + sz - 1;
+                int r = std::min(i + sz*2 - 1, n-1);  // (n-1) will be chosen if remain elements are fewer than (m*2)
                 merge(nums, l, m, r);
             }
         }
@@ -95,8 +95,8 @@ int main(){
     cout << "Given array is " << printVector(nums) << "\n";
 
     Solution sol;
-    sol.mergeSortRecursive(nums);
-    // sol.mergeSortIterative(nums);
+    // sol.mergeSortRecursive(nums);
+    sol.mergeSortIterative(nums);
     cout << "Sorted array is " << printVector(nums) << "\n";
 
     return 0;
