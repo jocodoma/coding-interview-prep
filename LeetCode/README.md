@@ -52,13 +52,15 @@
 
 #### [Binary Search Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Search-Tree)
 * [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
+* [LeetCode 0098]: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) -- Solutions: [C++](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.cpp) / [Python](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.py)
 
 
 ### [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
 
 
 ### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
-* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0383_Ransom_Note/ransom_note.py)
+* [LeetCode 0001]: [Two Sum](https://leetcode.com/problems/two-sum/) -- Solutions: [C++](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.cpp) / [Python](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.py) / [Javascript](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.js)
+* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.py)
 
 
 ### [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
