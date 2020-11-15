@@ -15,7 +15,7 @@
   - [x] [1089 Duplicate Zeros](https://leetcode.com/problems/duplicate-zeros/)
   - [x] [1295 Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/)
 
-## Data Structures
+## Category
 ### [Array](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Array)
 * [LeetCode 0026]: [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -- Solutions: [C++](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.cpp) / [Python](Problems/0026_Remove_Duplicates_from_Sorted_Array/remove_duplicates_from_sorted_array.py)
 * [LeetCode 0027]: [Remove Element](https://leetcode.com/problems/remove-element/) -- Solutions: [C++](Problems/0027_Remove_Element/remove_element.cpp) / [Python](Problems/0027_Remove_Element/remove_element.py)
@@ -31,21 +31,40 @@
 * [LeetCode 1295]: [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/) -- Solutions: [C++](Problems/1295_Find_Numbers_with_Even_Number_of_Digits/find_numbers_with_even_number_of_digits.cpp)
 
 
+### [Graph](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Graph)
+
+
+### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
+* [LeetCode 0001]: [Two Sum](https://leetcode.com/problems/two-sum/) -- Solutions: [C++](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.cpp) / [Python](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.py) / [Javascript](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.js)
+* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.py)
+
+
+### [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
+
+
 ### [Linked List](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Linked-List)
 * [LeetCode 0002]: [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) -- Solutions: [C++](Problems/0002_Add_Two_Numbers/add_two_numbers.cpp) / [Python](Problems/0002_Add_Two_Numbers/add_two_numbers.py)
 * [LeetCode 0019]: [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) -- Solutions: [C++](Problems/0019_Remove_Nth_Node_from_End_of_List/remove_nth_node_from_end_of_list.cpp)
 * [LeetCode 0021]: [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) -- Solutions: [C++](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.cpp) / [Python](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.py) / [Javascript](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.js)
 
 
-### [Stack](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Stack)
-
-
 ### [Queue](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Queue)
 
 
-### [Binary Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
+### Sorting
+
+
+### [Stack](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Stack)
+
+
+### String
+
+
+### Tree
+#### [Binary Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
 * [LeetCode 0094]: [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) -- Solutions: [C++](Problems/0094_Binary_Tree_Inorder_Traversal/binary_tree_inorder_traversal.cpp)
 * [LeetCode 0102]: [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) -- Solutions: [C++](Problems/0102_Binary_Tree_Level-Order_Traversal/binary_tree_level_order_traversal.cpp)
+* [LeetCode 0110]: [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) -- Solutions: [C++](Problems/0110_Balanced_Binary_Tree/balanced_binary_tree.cpp)
 * [LeetCode 0144]: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) -- Solutions: [C++](Problems/0144_Binary_Tree_Preorder_Traversal/binary_tree_preorder_traversal.cpp)
 * [LeetCode 0145]: [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) -- Solutions: [C++](Problems/0145_Binary_Tree_Postorder_Traversal/binary_tree_postorder_traversal.cpp)
 
@@ -55,18 +74,4 @@
 * [LeetCode 0098]: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) -- Solutions: [C++](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.cpp) / [Python](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.py)
 
 
-### [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
-
-
-### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
-* [LeetCode 0001]: [Two Sum](https://leetcode.com/problems/two-sum/) -- Solutions: [C++](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.cpp) / [Python](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.py) / [Javascript](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.js)
-* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.py)
-
-
 ### [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
-
-
-### [Graph](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Graph)
-
-## Algorithms
-### Sorting
