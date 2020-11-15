@@ -17,6 +17,8 @@ public:
     }
 
 private:
+    // time complexity: O(n)
+    // space complexity: O(h), where h is the height of the tree
     bool checkBalanced1(TreeNode* node) {
         if(!node)
             return true;
@@ -41,6 +43,8 @@ private:
         return 1 + (lh > rh ? lh : rh);
     }
 
+    // time complexity: O(n)
+    // space complexity: O(h), where h is the height of the tree
     std::pair<bool, int> checkBalanced2(TreeNode* node) {
         if (!node)
             return {true, 0};

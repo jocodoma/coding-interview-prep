@@ -16,6 +16,8 @@ public:
         return isSymmetric_Iterative(root);
     }
 
+    // time complexity: O(n)
+    // space complexity: O(h), in average h = log n, in worst case O(n) if unbalanced
     bool isSymmetric_Recursive(TreeNode* root) {
         return isMirror(root->left, root->right);
     }
@@ -34,6 +36,8 @@ public:
             && isMirror(leftSubtree->right, rightSubtree->left);
     }
 
+    // time complexity: O(n)
+    // space complexity: O(h), in average h = log n, in worst case O(n) if unbalanced
     bool isSymmetric_Iterative(TreeNode* root) {
         if (!root)
             return true;
