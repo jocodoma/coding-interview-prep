@@ -63,6 +63,7 @@
 ### Tree
 #### [Binary Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Tree)
 * [LeetCode 0094]: [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/) -- Solutions: [C++](Problems/0094_Binary_Tree_Inorder_Traversal/binary_tree_inorder_traversal.cpp)
+* [LeetCode 0101]: [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) -- Solutions: [C++](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0101_Symmetric_Tree/symmetric_tree.cpp)
 * [LeetCode 0102]: [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) -- Solutions: [C++](Problems/0102_Binary_Tree_Level-Order_Traversal/binary_tree_level_order_traversal.cpp)
 * [LeetCode 0110]: [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) -- Solutions: [C++](Problems/0110_Balanced_Binary_Tree/balanced_binary_tree.cpp)
 * [LeetCode 0144]: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) -- Solutions: [C++](Problems/0144_Binary_Tree_Preorder_Traversal/binary_tree_preorder_traversal.cpp)
