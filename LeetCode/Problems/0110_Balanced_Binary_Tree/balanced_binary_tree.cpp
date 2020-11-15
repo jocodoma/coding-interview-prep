@@ -43,7 +43,7 @@ private:
 
     std::pair<bool, int> checkBalanced2(TreeNode* node) {
         if (!node)
-            return {true, -1};
+            return {true, 0};
 
         auto left = checkBalanced2(node->left);
         if (!left.first)
@@ -53,9 +53,9 @@ private:
         if (!right.first)
             return {false, 0};
 
-        bool isBalanced = std::abs(left.second - right.second) <= 1;
+        bool isBalance = std::abs(left.second - right.second) <= 1;
         int height = 1 + std::max(left.second, right.second);
 
-        return {isBalanced, height};
+        return {isBalance, height};
     }
 };
