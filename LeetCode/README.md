@@ -68,7 +68,7 @@
 * [LeetCode 0110]: [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) -- Solutions: [C++](Problems/0110_Balanced_Binary_Tree/balanced_binary_tree.cpp)
 * [LeetCode 0144]: [Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/) -- Solutions: [C++](Problems/0144_Binary_Tree_Preorder_Traversal/binary_tree_preorder_traversal.cpp)
 * [LeetCode 0145]: [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) -- Solutions: [C++](Problems/0145_Binary_Tree_Postorder_Traversal/binary_tree_postorder_traversal.cpp)
-
+* [LeetCode 0236]: [Lowest Common Ancestor of a Binary Tree])(https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) -- Solutions: [C++](Problems/0236_Lowest_Common_Ancestor_of_a_Binary_Tree/lowest_common_ancestor_of_a_binary_tree.cpp)
 
 #### [Binary Search Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Search-Tree)
 * [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
