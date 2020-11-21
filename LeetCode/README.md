@@ -73,6 +73,6 @@
 #### [Binary Search Tree](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Search-Tree)
 * [LeetCode 0033]: [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) -- Solutions: [C++](Problems/0033_Search_in_Rotated_Sorted_Array/search_in_rotated_sorted_array.cpp)
 * [LeetCode 0098]: [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) -- Solutions: [C++](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.cpp) / [Python](Problems/0021_Merge_Two_Sorted_Lists/merge_two_sorted_lists.py)
-
+* [LeetCode 0235]: [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) -- Solutions: [C++](Problems/0235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree/lowest_common_ancestor_of_a_binary_search_tree.cpp)
 
 ### [Trie](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Trie)
