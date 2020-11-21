@@ -16,6 +16,8 @@ public:
     }
 
 private:
+    // time complexity: O(log n)
+    // space complexity: O(h), where h is the height of the tree
     TreeNode* recursive(TreeNode* root, TreeNode* p, TreeNode* q){
         if(!root || !p || !q)
             return root;
@@ -36,6 +38,8 @@ private:
         return node;
     }
 
+    // time complexity: O(log n)
+    // space complexity: O(1)
     TreeNode* recursive(TreeNode* root, TreeNode* p, TreeNode* q){
         if(!root || !p || !q)
             return root;
