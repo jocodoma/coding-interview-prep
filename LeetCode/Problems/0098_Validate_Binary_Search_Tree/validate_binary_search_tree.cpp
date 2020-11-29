@@ -4,51 +4,57 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
     // time complexity: O(n)
-    // space complexity: O(n) if the tree is unbalanced, O(log n) if tree is balanced
+    // space complexity: O(h), where h is the height of the tree. O(n) if tree is unbalanced.
     bool isValidBST(TreeNode* root) {
         return recursivePreOrderTraversal(root, LONG_MIN, LONG_MAX);
         // return recursivePostOrderTraversal(root, LONG_MIN, LONG_MAX);
-        // return recursiveInOrderTraversal(root, NULL);
+        // TreeNode *prev = nullptr;
+        // return recursiveInOrderTraversal(root, prev);
         // return iterativeInOrderTraversal(root);
     }
 
     // DFS recursive (Pre-order traversal / top-down method)
     // Use LONG_MIN and LONG_MAX to handle edge cases like [INT_MAX]
-    // potentially have stack overflow
+    // potentially have stack overflow due to recursive call
     bool recursivePreOrderTraversal(TreeNode* node, long lower, long upper){
-        if(node == NULL)
+        if(node == nullptr)
             return true;
-        
+
+        // BST: lower < node->val < upper
+        // -> lower < node->val
+        // -> node->val < upper
         if(node->val <= lower || node->val >= upper)
             return false;
-        
-        return recursivePreOrderTraversal(node->left, lower, node->val) &&
-               recursivePreOrderTraversal(node->right, node->val, upper);
+
+        return recursivePreOrderTraversal(node->left, lower, node->val)
+            && recursivePreOrderTraversal(node->right, node->val, upper);
     }
 
     // DFS recursive (Post-order traversal / bottom-up method)
-    // potentially have stack overflow
+    // potentially have stack overflow due to recursive call
     bool recursivePostOrderTraversal(TreeNode* node, long lower, long upper){
-        if(node == NULL)
+        if(!node)
             return true;
-        
+
         bool left = recursivePostOrderTraversal(node->left, lower, node->val);
         bool right = recursivePostOrderTraversal(node->right, node->val, upper);
 
         if(node->val <= lower || node->val >= upper)
             return false;
-        
+
         return left && right;
     }
 
     // DFS recursive (In-order traversal)
-    // potentially have stack overflow
+    // potentially have stack overflow due to recursive call
     bool recursiveInOrderTraversal(TreeNode* node, TreeNode*& prev){
         if(!node)
             return true;
@@ -56,7 +62,7 @@ public:
         if(!recursiveInOrderTraversal(node->left, prev))
             return false;
 
-        if(prev != NULL && node->val <= prev->val)
+        if(prev && node->val <= prev->val)
             return false;
 
         prev = node;
@@ -66,16 +72,16 @@ public:
 
     // DFS iterative (In-order traversal)
     bool iterativeInOrderTraversal(TreeNode* node){
-        std::stack<TreeNode*> todoStk;
+        std::stack<TreeNode*> stk;
         long preVal = LONG_MIN;
 
-        while(node || !todoStk.empty()){
+        while(node || !stk.empty()){
             while(node){
-                todoStk.push(node);
+                stk.push(node);
                 node = node->left;
             }
 
-            node = todoStk.top(); todoStk.pop();
+            node = stk.top();stk.pop();
             if(node->val <= preVal)
                 return false;
 

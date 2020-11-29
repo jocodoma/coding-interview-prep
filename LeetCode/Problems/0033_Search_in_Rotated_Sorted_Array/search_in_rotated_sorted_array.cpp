@@ -7,8 +7,8 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         // return bruteForce(nums, target);
-        // return binarySearch(nums, target);
-        return binarySearchXor(nums, target);
+        return binarySearch(nums, target);
+        // return binarySearchXor(nums, target);
     }
 
 private:
@@ -26,24 +26,25 @@ private:
 
     // time complexity: O(log n), space complexity: O(1)
     int binarySearch(vector<int>& nums, int target){
-        // case 1 - general case
+        // case 1 - typical binary search
         // nums[l] <= nums[mid] <= nums[r]
-        // -> [l .. mid] && [mid .. r] are both sorted
+        // [l .. mid - 1] && [mid + 1 .. r] are both sorted
 
-        // case 2
-        // nums[mid] < nums[l]
-        // -> [l .. mid] contains a drop
-        // -> [mid .. r] is sorted
+        // case 2 - mid before pivot
+        // -> nums[mid] > nums[r]
+        // [l .. mid - 1] is sorted
+        // [mid + 1 .. r] contains a drop
 
-        // case 3
-        // nums[mid] > nums[r]
-        // -> [l .. mid] is sorted
-        // -> [mid .. r] contains a drop
+        // case 3 - mid after pivot
+        // -> nums[mid] < nums[l]
+        // [l .. mid - 1] contains a drop
+        // [mid + 1 .. r] is sorted
 
         if(nums.empty())
             return -1;
 
-        int l = 0, r = nums.size()-1;
+        int l = 0;
+        int r = nums.size() - 1;
 
         while(l <= r){
             // int mid = (l + r) / 2;  may have overflow
@@ -52,16 +53,16 @@ private:
             if(nums[mid] == target)
                 return mid;
 
-            if(nums[mid] < nums[l])
-                if(nums[mid] < target && target <= nums[r])
-                    l = mid + 1;
-                else
-                    r = mid - 1;
-            else
+            if(nums[mid] > nums[r])
                 if(nums[l] <= target && target < nums[mid])
                     r = mid - 1;
                 else
                     l = mid + 1;
+            else
+                if(nums[mid] < target && target <= nums[r])
+                    l = mid + 1;
+                else
+                    r = mid - 1;
         }
 
         return -1;
@@ -97,9 +98,14 @@ private:
         int hi = nums.size() - 1;
 
         while(lo < hi){
-            int mid = (lo + hi) / 2;
+            // int mid = (l + r) / 2;  may have overflow
+            int mid = (hi - lo) / 2 + lo;
+
+            // [mid .. hi] contains no drop
             if((nums[0] <= target) ^ (target <= nums[mid]) ^ (nums[mid] < nums[0]))  // bitwise XOR
                 lo = mid + 1;
+
+            // [lo .. mid] contains no drop
             else
                 hi = mid;
         }
