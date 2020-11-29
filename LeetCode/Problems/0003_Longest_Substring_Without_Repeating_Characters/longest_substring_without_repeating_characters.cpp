@@ -20,7 +20,7 @@ private:
     // time complexity: O(n^2), in worst case O(n^3) due to the search in the hashset
     // space complexity: O(m), where m is the size of hash set. In worst case it could be up to O(n)
     int bruteForce(string s) {
-        int maxLen = 0;
+        int maxLength = 0;
         int n = s.length();
 
         for (int i = 0, j = 0; i < n; i++) {
@@ -40,16 +40,16 @@ private:
                 charSet.insert(s[k]);
             }
 
-            maxLen = std::max(maxLen, j - i);
+            maxLength = std::max(maxLength, j - i);
         }
 
-        return maxLen;
+        return maxLength;
     }
 
     // time complexity: O(n), in worst case O(n^2) due to the search in the hashset
     // space complexity: O(m), where m is the size of hash set
     int slidingWindow(string s) {
-        int maxLen = 0;
+        int maxLength = 0;
         int n = s.size();
         int i = 0, j = 0;
         std::unordered_set<char> charSet;
@@ -64,16 +64,16 @@ private:
                 j++;
             }
 
-            maxLen = std::max(maxLen, j - i);
+            maxLength = std::max(maxLength, j - i);
         }
 
-        return maxLen;
+        return maxLength;
     }
 
     // time complexity: O(n), in worst case O(n^2) due to the search in the hashset
     // space complexity: O(m), where m is the size of hash map
     int slidingWindowOptimal(string s) {
-        int maxLen = 0;
+        int maxLength = 0;
         int n = s.length();
         std::unordered_map<char,int> charMap;
 
@@ -86,17 +86,17 @@ private:
                 i = std::max(i, charMap[s[j]]);
 
             charMap[s[j]] = j + 1;
-            maxLen = std::max(maxLen, j + 1 - i);
+            maxLength = std::max(maxLength, j + 1 - i);
         }
 
-        return maxLen;
+        return maxLength;
     }
 
 
     // time complexity: O(n)
     // space complexity: O(m), where m is the size of table
     int slidingWindowTable(string s){
-        int maxLen = 0;
+        int maxLength = 0;
         int n = s.length();
 
         // int[26] for Letters 'a' - 'z' or 'A' - 'Z'
@@ -107,14 +107,14 @@ private:
         for(int i = 0, j = 0; j < n; j++){
             i = std::max(i, table[s[j]]);
             table[s[j]] = j + 1;
-            maxLen = std::max(maxLen, j + 1 - i);
+            maxLength = std::max(maxLength, j + 1 - i);
         }
-        return maxLen;
+        return maxLength;
     }
 
     // same as above
     int slidingWindowTable2(string s){
-        int maxLen = 0;
+        int maxLength = 0;
         int n = s.length();
 
         vector<int> table(256, -1);
@@ -125,9 +125,9 @@ private:
                 start = table[s[i]];
 
             table[s[i]] = i;
-            maxLen = std::max(maxLen, i - start);
+            maxLength = std::max(maxLength, i - start);
         }
-        return maxLen;
+        return maxLength;
     }
 };
 

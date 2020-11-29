@@ -26,8 +26,10 @@ private:
         int lh = findHeight(node->left);
         int rh = findHeight(node->right);
 
-        return std::abs(lh - rh) <= 1
-            && checkBalanced1(node->left)
+        if(std::abs(lh - rh > 1))
+            return false;
+
+        return checkBalanced1(node->left)
             && checkBalanced1(node->right);
     }
 
@@ -40,6 +42,7 @@ private:
         // same as above return statement
         int lh = findHeight(node->left);
         int rh = findHeight(node->right);
+
         return 1 + (lh > rh ? lh : rh);
     }
 
@@ -51,11 +54,11 @@ private:
 
         auto left = checkBalanced2(node->left);
         if (!left.first)
-            return {false, 0};
+            return left;
 
         auto right = checkBalanced2(node->right);
         if (!right.first)
-            return {false, 0};
+            return right;
 
         bool isBalance = std::abs(left.second - right.second) <= 1;
         int height = 1 + std::max(left.second, right.second);

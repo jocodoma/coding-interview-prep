@@ -28,21 +28,27 @@ public:
     }
 
     void recursiveHelper_1(TreeNode* node, int level, vector<int>& subSol){
-        if(!node) return;
+        if(!node)
+            return;
+
         if(level == 0){
             subSol.push_back(node->val);
+            return;
         }
-        else{
-            recursiveHelper_1(node->left, level-1, subSol);
-            recursiveHelper_1(node->right, level-1, subSol);
-        }
+
+        recursiveHelper_1(node->left, level-1, subSol);
+        recursiveHelper_1(node->right, level-1, subSol);
     }
 
     int findHeight(TreeNode* node){
-        if(!node) return 0;
+        if(!node)
+            return 0;
+
         int lh = findHeight(node->left);
         int rh = findHeight(node->right);
-        return (lh > rh) ? lh + 1 : rh + 1;
+
+        // return (lh > rh) ? lh + 1 : rh + 1;
+        return 1 + std::max(lh, rh);
     }
 
     // time complexity: O(n)
@@ -53,27 +59,39 @@ public:
     }
 
     void recursiveHelper_2(TreeNode* node, int depth){
-        if(!node) return;
-        if(sol.size() == depth) sol.emplace_back(vector<int>());
+        if(!node)
+            return;
+
+        if(sol.size() == depth)
+            sol.emplace_back(vector<int>());
+
         sol[depth].emplace_back(node->val);
         recursiveHelper_2(node->left, depth+1);
         recursiveHelper_2(node->right, depth+1);
     }
 
     vector<vector<int>> iterativeTraversal(TreeNode* root){
-        if(!root) return {};
+        if(!root)
+            return {};
 
         std::queue<TreeNode*> q;
         q.push(root);
+
         while(!q.empty()){
             int n = q.size();
             vector<int> subSol;
+
             for(int i = 0; i < n; i++){
                 TreeNode *node = q.front();q.pop();
                 subSol.push_back(node->val);
-                if(node->left) q.push(node->left);
-                if(node->right) q.push(node->right);
+
+                if(node->left)
+                    q.push(node->left);
+
+                if(node->right)
+                    q.push(node->right);
             }
+
             sol.push_back(subSol);
         }
 

@@ -19,8 +19,8 @@ private:
     // time complexity: O(log n)
     // space complexity: O(h), where h is the height of the tree
     TreeNode* recursive(TreeNode* root, TreeNode* p, TreeNode* q){
-        if(!root || !p || !q)
-            return root;
+        if(!root)
+            return nullptr;
 
         if(p->val > q->val)
             std::swap(p, q);
@@ -41,8 +41,8 @@ private:
     // time complexity: O(log n)
     // space complexity: O(1)
     TreeNode* recursive(TreeNode* root, TreeNode* p, TreeNode* q){
-        if(!root || !p || !q)
-            return root;
+        if(!root)
+            return nullptr;
 
         if(p->val > q->val)
             std::swap(p, q);
