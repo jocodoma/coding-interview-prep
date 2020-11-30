@@ -56,15 +56,20 @@ public:
     // DFS recursive (In-order traversal)
     // potentially have stack overflow due to recursive call
     bool recursiveInOrderTraversal(TreeNode* node, TreeNode*& prev){
+        // in-order traversal: left - root - right
+
         if(!node)
             return true;
 
         if(!recursiveInOrderTraversal(node->left, prev))
             return false;
 
+        // right, prev is the parent node
+        // -> node-val > prev->val
         if(prev && node->val <= prev->val)
             return false;
 
+        // left, prev is now the parent
         prev = node;
 
         return recursiveInOrderTraversal(node->right, prev);
