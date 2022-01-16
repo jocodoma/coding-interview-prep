@@ -36,7 +36,7 @@
 
 ### [Hashing](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Hashing)
 * [LeetCode 0001]: [Two Sum](https://leetcode.com/problems/two-sum/) -- Solutions: [C++](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.cpp) / [Python](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.py) / [Javascript](https://github.com/jocodoma/coding-interview-prep/blob/master/LeetCode/Problems/0001_Two_Sum/two_sum.js)
-* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0098_Validate_Binary_Search_Tree/validate_binary_search_tree.py)
+* [LeetCode 0383]: [Ransom Note](https://leetcode.com/problems/ransom-note/) -- Solutions: [C++](Problems/0383_Ransom_Note/ransom_note.cpp) / [Python](Problems/0383_Ransom_Note/ransom_note.py)
 
 
 ### [Heap](https://tech.jocodoma.com/2019/08/11/Overview-of-Data-Structures/#Binary-Heap)
