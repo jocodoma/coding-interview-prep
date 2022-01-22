@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
+    bool containsDuplicate(vector<int>& nums){
         // return bruteForce(nums);
         // return sorting(nums);
         return hashset(nums);
@@ -66,20 +66,19 @@ string printVector(const vector<int>& nums, int len){
 }
 
 int main(){
-    Solution sol;
     std::cout.setf(std::ios::boolalpha);
 
     vector<int> nums1({1,2,3,1});
     cout << "Input:  " << printVector(nums1, nums1.size()) << "\n";
-    cout << "Output: " << sol.containsDuplicate(nums1) << "\n";
+    cout << "Output: " << Solution().containsDuplicate(nums1) << "\n";
 
     vector<int> nums2({1,2,3,4});
     cout << "Input:  " << printVector(nums2, nums2.size()) << "\n";
-    cout << "Output: " << sol.containsDuplicate(nums2) << "\n";
+    cout << "Output: " << Solution().containsDuplicate(nums2) << "\n";
 
     vector<int> nums3({1,1,1,3,3,4,3,2,4,2});
     cout << "Input:  " << printVector(nums3, nums3.size()) << "\n";
-    cout << "Output: " << sol.containsDuplicate(nums3) << "\n";
+    cout << "Output: " << Solution().containsDuplicate(nums3) << "\n";
 
     return 0;
 }

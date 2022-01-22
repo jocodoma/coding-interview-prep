@@ -12,7 +12,6 @@ class Solution:
             for j in range(i+1, len(nums)):
                 if num == nums[j]:
                     return True
-
         return False
 
     # time complexity: O(nlogn) due to sorting
@@ -22,7 +21,6 @@ class Solution:
         for i in range(1, len(nums)):
             if nums[i-1] == nums[i]:
                 return True
-
         return False
 
     # time complexity: O(n), space complexity: O(n)
@@ -33,20 +31,17 @@ class Solution:
                 return True
             else:
                 table.add(num)
-
         return False
 
 
-sol = Solution()
-
 nums = [1,2,3,1]
 print(f'Input:  {nums}')
-print(f'Output: {sol.containsDuplicate(nums)}\n')
+print(f'Output: {Solution().containsDuplicate(nums)}\n')
 
 nums = [1,2,3,4]
 print(f'Input:  {nums}')
-print(f'Output: {sol.containsDuplicate(nums)}\n')
+print(f'Output: {Solution().containsDuplicate(nums)}\n')
 
 nums = [1,1,1,3,3,4,3,2,4,2]
 print(f'Input:  {nums}')
-print(f'Output: {sol.containsDuplicate(nums)}\n')
+print(f'Output: {Solution().containsDuplicate(nums)}\n')

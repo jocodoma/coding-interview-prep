@@ -7,14 +7,14 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         // return bruteForce(prices);
-        // return onePass(prices);
         return twoPointers(prices);
+        // return onePass(prices);
     }
 
 private:
     // time complexity: O(n**2), space complexity: O(1)
     int bruteForce(vector<int>& prices){
-        if(prices.empty() || prices.size() < 2)
+        if(prices.empty())
             return 0;
 
         int maxProfitSoFar = 0;
@@ -29,10 +29,31 @@ private:
         return maxProfitSoFar;
     }
 
+    // time complexity: O(n), space complexity: O(1)
+    int twoPointers(vector<int>& prices){
+        int maxProfitSoFar = 0;
+        int buy = 0;
+        int sell = 1;
+        while(sell < prices.size()){
+            int profit = prices[sell] - prices[buy];
+            if(profit > 0){
+                if(profit > maxProfitSoFar)
+                    maxProfitSoFar = profit;
+                sell++;
+            }
+            else{
+                buy = sell;
+                sell++;
+            }
+        }
+
+        return maxProfitSoFar;
+    }
+
     // keep track both minimum price and maximum profit
     // time complexity: O(n), space complexity: O(1)
     int onePass(vector<int>& prices){
-        if(prices.empty() || prices.size() < 2)
+        if(prices.empty())
             return 0;
 
         int minPriceSoFar = prices[0];
@@ -42,29 +63,6 @@ private:
             minPriceSoFar = std::min(minPriceSoFar, prices[i]);
             // maximum profit so far from day 0 to day i
             maxProfitSoFar = std::max(maxProfitSoFar, prices[i] - minPriceSoFar);
-        }
-
-        return maxProfitSoFar;
-    }
-
-    //
-    int twoPointers(vector<int>& prices){
-        if(prices.empty() || prices.size() < 2)
-            return 0;
-
-        int maxProfitSoFar = 0;
-        int buy = 0;
-        int sell = 1;
-        while(sell < prices.size()){
-            if(prices[buy] < prices[sell]){
-                int profit = prices[sell] - prices[buy];
-                maxProfitSoFar = std::max(maxProfitSoFar, profit);
-                sell++;
-            }
-            else{
-                buy = sell;
-                sell++;
-            }
         }
 
         return maxProfitSoFar;
@@ -87,16 +85,13 @@ string printVector(const vector<int>& nums, int len){
 }
 
 int main(){
-
-    Solution sol;
-
     vector<int> prices1({7,1,5,3,6,4});
-    int output = sol.maxProfit(prices1);
+    int output = Solution().maxProfit(prices1);
     cout << "Input:  " << printVector(prices1, prices1.size()) << "\n";
     cout << "Output: " << output << "\n\n";
 
     vector<int> prices2({7,6,4,3,1});
-    output = sol.maxProfit(prices2);
+    output = Solution().maxProfit(prices2);
     cout << "Input:  " << printVector(prices2, prices2.size()) << "\n";
     cout << "Output: " << output << "\n\n";
 
