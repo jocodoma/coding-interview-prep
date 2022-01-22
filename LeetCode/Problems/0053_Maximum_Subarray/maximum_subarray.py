@@ -107,8 +107,8 @@ class Solution:
 
         return max(leftSubMax, rightSubMax, midSubMax)
 
-def printList(nums: List[int]) -> str:
-    return ("[" +  (', ').join(map(str, nums)) + "]")
+# def printList(nums: List[int]) -> str:
+#     return ("[" +  (', ').join(map(str, nums)) + "]")
 
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 print(f'Input:  {nums}')

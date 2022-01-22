@@ -14,9 +14,6 @@ public:
 private:
     // time complexity: O(n), space complexity: O(1)
     int trackMaxSum(vector<int>& nums){
-        if(nums.empty())
-            return 0;
-
         int currMaxSum = nums[0];
         int maxSumSoFar = nums[0];
 
@@ -30,9 +27,6 @@ private:
 
     // using STL
     int trackMaxSum2(vector<int>& nums){
-        if(nums.empty())
-            return 0;
-
         for(int i = 1; i < nums.size(); i++)
             nums[i] = std::max(nums[i], nums[i]+nums[i-1]);
 
@@ -58,9 +52,7 @@ string printVector(const vector<int>& nums){
 int main(){
     vector<int> nums({-2, 1, -3, 4, -1, 2, 1, -5, 4});
     cout << "Input: " << printVector(nums) << "\n";
-
-    Solution sol;
-    cout << "Output: " << sol.maxSubArray(nums) << "\n";
+    cout << "Output: " << Solution().maxSubArray(nums) << "\n";
 
     return 0;
 }
