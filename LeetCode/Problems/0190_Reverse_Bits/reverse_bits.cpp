@@ -5,7 +5,8 @@ class Solution{
 public:
     std::string reverseBits(std::string n){
         // return reverse_str(n);
-        return reverse_str_twoPointers(n);
+        return reverse_str_onePass(n);
+        // return reverse_str_twoPointers(n);
     }
 
     uint32_t reverseBits(uint32_t n){
@@ -17,6 +18,16 @@ private:
     std::string reverse_str(std::string n){
         std::reverse(n.begin(), n.end());
         return n;
+    }
+
+    std::string reverse_str_onePass(std::string n){
+        std::string ans = n;
+        int i = n.size() - 1;
+        for(int j = 0; j < n.size(); j++){
+            ans[i] = n[j];
+            i--;
+        }
+        return ans;
     }
 
     // template <typename T>

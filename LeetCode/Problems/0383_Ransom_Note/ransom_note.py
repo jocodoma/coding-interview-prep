@@ -19,6 +19,26 @@ class Solution:
 
     # time complexity: O(n+m), space complexity: O(m)
     def __hash_map(self, ransomNote: str, magazine: str) -> bool:
+        return self.__hash_mapv1
+        # return self.__hash_mapv2
+
+    def __hash_mapv1(self, ransomNote: str, magazine: str) -> bool:
+        table = {}
+        for letter in magazine:
+            if letter in table:
+                table[letter] += 1
+            else:
+                table[letter] = 0
+
+        for letter in ransomNote:
+            if letter in table:
+                table[letter] -= 1
+            if letter not in table or table[letter] < 0:
+                return False
+
+        return True
+
+    def __hash_mapv2(self, ransomNote: str, magazine: str) -> bool:
         mag_dict = defaultdict(int)
         for letter in magazine:
             mag_dict[letter] += 1
