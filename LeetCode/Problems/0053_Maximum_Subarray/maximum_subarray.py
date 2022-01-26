@@ -2,13 +2,13 @@ from typing import List
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        # return self.__bruteForceO3(nums)
-        # return self.__bruteForceO2(nums)
-        # return self.__onePassDP(nums)
-        return self.__divideAndConquer(nums)
+        # return self.__bruteForce_ON3(nums)
+        # return self.__bruteForce_ON2(nums)
+        return self.__onePassDP(nums)
+        # return self.__divideAndConquer(nums)
 
     # time complexity: O(n**3), space complexity: O(1)
-    def __bruteForceO3(self, nums: List[int]) -> int:
+    def __bruteForce_ON3(self, nums: List[int]) -> int:
         maxSum = nums[0]
         for i in range(len(nums)):
             for j in range(len(nums)):
@@ -19,11 +19,11 @@ class Solution:
         return maxSum
 
     # time complexity: O(n**2), space complexity: O(1)
-    def __bruteForceO2(self, nums: List[int]) -> int:
-        # return self.__bruteForceO2v1(nums)
-        return self.__bruteForceO2v2(nums)
+    def __bruteForce_ON2(self, nums: List[int]) -> int:
+        return self.__bruteForce_ON2v1(nums)
+        # return self.__bruteForce_ON2v2(nums)
 
-    def __bruteForceO2v1(self, nums: List[int]) -> int:
+    def __bruteForce_ON2v1(self, nums: List[int]) -> int:
         global_maxSum = nums[0]
         for i in range(len(nums)):
             local_maxSum = currSum = nums[i]
@@ -33,7 +33,7 @@ class Solution:
             global_maxSum = max(global_maxSum, local_maxSum)
         return global_maxSum
 
-    def __bruteForceO2v2(self, nums: List[int]) -> int:
+    def __bruteForce_ON2v2(self, nums: List[int]) -> int:
         maxSum = nums[0]
         for i in range(len(nums)):
             currSum = nums[i]
@@ -46,8 +46,9 @@ class Solution:
     # Kadane's algorithm with dynamic programming
     # time complexity: O(n), space complexity: O(1)
     def __onePassDP(self, nums: List[int]) -> int:
-        return self.__onePassDPv1(nums)
+        # return self.__onePassDPv1(nums)
         # return self.__onePassDPv2(nums)
+        return self.__onePassDPv3(nums)
 
     def __onePassDPv1(self, nums: List[int]) -> int:
         global_maxSum = local_maxSum = nums[0]
@@ -59,20 +60,34 @@ class Solution:
 
     def __onePassDPv2(self, nums: List[int]) -> int:
         l = r = 0
-        global_maxSum = local_maxSum = nums[0]
+        global_maxSum = local_maxSum = currSum = nums[0]
         for i in range(1, len(nums)):
-            currSum = local_maxSum + nums[i]
+            # same as local_maxSum = max(num[i], local_maxSum+num[i])
+            currSum = currSum + nums[i]
             if nums[i] > currSum:
-                local_maxSum = nums[i]
+                currSum = nums[i]
                 l = i
-            else:
-                local_maxSum = currSum
+            local_maxSum = currSum
 
             if local_maxSum > global_maxSum:
                 global_maxSum = local_maxSum
                 r = i
         print(f'l: {l}, r: {r}')
         return global_maxSum
+
+    def __onePassDPv3(self, nums: List[int]) -> int:
+        l = r = 0
+        maxSum = currSum = nums[0]
+        for i in range(1, len(nums)):
+            currSum = currSum + nums[i]
+            if nums[i] > currSum:
+                currSum = nums[i]
+                l = i
+            if currSum > maxSum:
+                maxSum = currSum
+                r = i
+        print(f'l: {l}, r: {r}')
+        return maxSum
 
     # time complexity: O(nlogn), space complexity: O(logn)
     def __divideAndConquer(self, nums: List[int]) -> int:
